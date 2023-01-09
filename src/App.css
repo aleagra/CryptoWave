@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+div {
+}
+@layer base {
+  body {
+    @apply h-screen bg-navbar;
+  }
+}
+@layer components {
+  input {
+    background-color: #22232c;
+  }
+  td {
+    padding: 12px;
+  }
+}
+.text {
+  font-size: 3.5rem;
+  background-image: linear-gradient(
+    rgba(109, 217, 228, 1) 0%,
+    rgba(69, 65, 157, 1) 35%,
+    rgba(169, 112, 231, 1) 100%
+  );
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
