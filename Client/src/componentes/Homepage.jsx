@@ -28,8 +28,8 @@ export function Homepage() {
               className="m-auto max-sm:w-full  sm:w-full"
             />
           </div>
-          <div className=" flex flex-col justify-center  px-5 max-lg:w-[90%] max-md:m-auto lg:mb-12 xl:m-0 2xl:w-[45%]">
-            <p className="mt-12 text-sm font-bold text-[#78D9E4]">
+          <div className=" flex flex-col justify-center  px-5 max-lg:w-[90%]  max-md:m-auto lg:mb-12 xl:m-0 2xl:w-[45%]">
+            <p className="mt-12 text-sm font-bold text-[#78D9E4] max-md:text-center">
               SIGN UP TODAY
             </p>
             <div className="flex flex-col gap-y-5 text-[3rem] font-bold uppercase text-white max-xl:text-2xl max-md:text-center">
@@ -37,17 +37,21 @@ export function Homepage() {
               <span className="text"> Fastest growing</span>
               <span className="text">Crypto web app</span>
             </div>
-            <p className=" dark:text-text my-12 text-[1rem]  font-bold  text-white max-xl:my-8 max-lg:text-center max-md:text-xl xl:text-[2.5rem] xl:text-2xl 2xl:text-2xl">
+            <p className=" dark:text-text my-12 text-[1rem] opacity-70 font-bold  text-white max-xl:my-8 max-lg:text-center max-md:text-xl xl:text-[2.5rem] xl:text-2xl 2xl:text-2xl">
               buy and sell 100+ cryptocoins using bank transfers or your
               credit/debit card.
             </p>
-            <div className="flex flex-row gap-14">
-              <button className="dark:border-text text-bold rounded-lg border-2 border-white bg-[#78D9E4] p-4 font-bold text-white max-sm:p-[0.5rem] max-sm:text-sm sm:w-full md:m-auto md:w-[60%] xl:m-0 ">
+            <div className="flex flex-row gap-14 max-md:justify-evenly max-sm:gap-0 max-md:gap-4">
+              <a href="/Login" className="md:w-[60%]">
+              <button className="dark:border-text text-bold rounded-lg border-2 border-white bg-[#78D9E4] p-4 font-bold text-white max-sm:p-[0.5rem] max-sm:text-sm sm:w-full md:m-auto  xl:m-0 ">
                 Get Started
               </button>
-              <button className="dark:border-text rounded-lg border-2 border-white bg-[#AC85F0] p-4  text-white max-sm:p-[0.5rem] max-sm:text-sm sm:w-full md:m-auto md:w-[60%] xl:m-0 ">
+              </a>
+              <a href="/Market" className="md:w-[60%] ">
+              <button className="dark:border-text rounded-lg border-2 border-white bg-[#AC85F0] p-4  text-white max-sm:p-[0.5rem] max-sm:text-sm sm:w-full md:m-auto xl:m-0 ">
                 More information
               </button>
+              </a>
             </div>
           </div>
         </div>
@@ -102,9 +106,11 @@ export function Homepage() {
                       </td>
 
                       <td className="flex items-center  justify-center p-5 max-lg:hidden">
-                        <button className=" w-[80%] rounded-md bg-[#00A68C] p-2 uppercase">
+                        <a href="/Exchange" className="w-[80%] ">
+                        <button className="w-full p-2  rounded-md bg-[#00A68C]  uppercase">
                           Buy
                         </button>
+                        </a>
                       </td>
                     </tr>
                   </>
@@ -131,9 +137,11 @@ export function Homepage() {
               From established industries to booming new age up-and-comers —
               pick from over a dozen of different routes to a smart investment.
             </p>
+            <a href="/Login">
             <button className="rounded-lg border-2 border-[#78D9E4] p-4 text-white  max-sm:p-[0.5rem] max-sm:text-sm sm:w-full md:m-auto md:w-[60%] xl:m-0 ">
               START EARNING
             </button>
+            </a>
           </div>
         </div>
       </section>

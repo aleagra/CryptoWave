@@ -6,7 +6,7 @@ const login = async (req, res) => {
   console.log(req.body);
   User.findOne({
     where: {
-      username: req.body.username,
+      user: req.body.username,
     },
   }).then((user) => {
     if (!user) {

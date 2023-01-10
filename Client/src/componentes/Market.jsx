@@ -64,8 +64,8 @@ export function Market() {
                   </td>
 
                   <td className="flex items-center  justify-center p-5 max-lg:hidden">
-                    <Link to="/Exchange" className="">
-                      <button className=" w-[100%] rounded-md bg-[#00A68C] p-2 px-10 uppercase">
+                    <Link to="/Exchange" >
+                      <button className=" w-[100%] rounded-md bg-[#00A68C] p-2 px-10 uppercase ">
                         Buy
                       </button>
                     </Link>

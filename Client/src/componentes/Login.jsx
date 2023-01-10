@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Lottie from "lottie-react";
+import account from "../assets/account.json";
 export function Login() {
   const url = "http://localhost:5050/user/login";
   const [username, setUsername] = useState("");
@@ -154,32 +156,40 @@ export function Login() {
           />
         </svg>
       </Link>
-      <h1 className="absolute top-0 ml-5 mt-6  text-xl font-bold text-white">
-        Bienvenido <span>{user.username}</span>
-      </h1>
+     
 
-      <div className="relative m-auto flex  w-max flex-col text-left">
-        <label className=" text-sm font-bold" htmlFor="">
-          Password
-        </label>
-        <p>{user.balance}</p>
-      </div>
-
+      <div className="w-full m-auto justify-center flex items-center flex-row max-lg:flex-col ">
+      <div className="  relative  max-sm:text-2xl text-3xl flex flex-col text-center max-lg:gap-y-10 gap-y-4 max-sm:w-full ">
+    
+       <label className="text-sm font-bold text-left"  htmlFor="">
+              Full name
+            </label>
+        <p className="relative  p-4 w-[19.5rem] rounded-lg border-2 border-borderInput bg-input px-10  text-sm outline-none max-sm:w-full max-sm:rounded-none">{user.firstname +" "+user.lastname}</p>
+        <label className="text-sm font-bold text-left" htmlFor="">
+             Email
+            </label>
+        <p className="relative  p-4 w-[19.5rem] rounded-lg border-2 border-borderInput bg-input px-10  text-sm outline-none max-sm:w-full max-sm:rounded-none">{user.email}</p>
       <div className="flex flex-col justify-center text-center ">
         <a href="/Login">
           <button
-            className="m-auto my-10 h-10 w-[19.5rem] rounded-lg bg-btn px-10 text-lg"
+            className="m-auto mt-12 p-4 w-[19.5rem] max-md:w-full rounded-lg bg-red-600 px-10 text-lg max-sm:rounded-none"
             onClick={hadndleLogout}
           >
-            Cerrar sesion
+          Log Out
+     
           </button>
         </a>
       </div>
+        </div>
+   
+      </div>
+    
     </div>
   );
   return (
     <>
       <>
+   
         <div>{user === null ? loginForm() : logoutForm()}</div>
       </>
     </>

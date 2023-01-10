@@ -19,7 +19,7 @@ usersController.createUser = async (req, res) => {
   try {
     const modelData = {
       id: req.body.id,
-      username: req.body.username,
+      user: req.body.user,
       firstname: req.body.firstname,
       lastname: req.body.lastname,
       email: req.body.email,

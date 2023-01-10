@@ -48,12 +48,13 @@ export function Navbar() {
                   open ? "top-10 " : "top-[-70000px] "
                 }`}
               >
+               
                 <Link
                   to="/MyWallet"
                   onClick={() => setOpen(!open)}
-                  className="my-12 text-3xl hover:text-[#78D9E4] lg:my-0 lg:ml-8 lg:text-xl "
+                  className="my-12 text-3xl hover:text-[#78D9E4] lg:my-0 lg:ml-8 lg:text-xl"
                 >
-                  Dashboard
+                  Wallet
                 </Link>
                 <Link
                   to="/Exchange"
@@ -61,13 +62,6 @@ export function Navbar() {
                   className="my-12 text-3xl hover:text-[#78D9E4] lg:my-0 lg:ml-8 lg:text-xl"
                 >
                   Exchange
-                </Link>
-                <Link
-                  to="/MyWallet"
-                  onClick={() => setOpen(!open)}
-                  className="my-12 text-3xl hover:text-[#78D9E4] lg:my-0 lg:ml-8 lg:text-xl"
-                >
-                  Wallet
                 </Link>
                 <Link
                   to="/Market"
