@@ -1,7 +1,7 @@
 import React from "react";
 import Lottie from "lottie-react";
-import wallet from "../assets/intento.json";
-import buy from "../assets/buy2.json";
+import wallet from "../assets/wallet.json";
+import buy from "../assets/buy.json";
 import axios from "axios";
 import { Market } from "./Market";
 import { useState, useEffect } from "react";

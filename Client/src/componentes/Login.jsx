@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Lottie from "lottie-react";
-import account from "../assets/account.json";
 export function Login() {
   const url = "http://localhost:5050/user/login";
   const [username, setUsername] = useState("");
@@ -156,8 +154,6 @@ export function Login() {
           />
         </svg>
       </Link>
-     
-
       <div className="w-full m-auto justify-center flex items-center flex-row max-lg:flex-col ">
       <div className="  relative  max-sm:text-2xl text-3xl flex flex-col text-center max-lg:gap-y-10 gap-y-4 max-sm:w-full ">
     

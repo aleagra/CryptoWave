@@ -7,7 +7,6 @@ import { Navbar } from "./Navbar";
 export default function Search() {
   const url =
     "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false";
-  const [search, setSearch] = useState([]);
   const [coins, setCoins] = useState([]);
 
   useEffect(() => {
@@ -17,8 +16,7 @@ export default function Search() {
     }
     productosDB();
   }, []);
-  let { buscar } = useParams();
-  console.log(buscar);
+  let { buscar } = useParams(); 
 
   return (
     <>

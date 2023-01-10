@@ -17,38 +17,26 @@ useEffect(() => {
       setList(data.data.data[0].list)
       
     }
-    UserCoinsData();
-  
+    UserCoinsData(); 
 }, []);
 console.log(list)
 async function handleSubmit() {
-    
   const send = await axios.put(`http://localhost:5050/user/1` ,  {
     list: 1,
-
-    
   });}
   const map = () => (
     
      usercoins.map((Element) => {
             return (
               <>
-         
-      
         <div className="flex items-center justify-between p-2 my-10 bg-prueba rounded-lg flex-wrap">
                     <div className=" flex w-[50%] items-center   text-2xl max-lg:gap-4 gap-6 ">
                       <img className=" w-6 ml-5 " src={Element.list.image}></img>
                       <p className="max-lg:text-xl">{Element.list.name}</p>
-                   
-                    </div>
-      
-
-              
-                    <p className=" text-center text-2xl font-bold max-sm:mr-5">
+                   </div>
+                     <p className=" text-center text-2xl font-bold max-sm:mr-5">
                       ${Element.list.current_price}
                     </p>
-                
-            
                     <p
                       className={` p-5 text-center text-xl font-bold max-sm:hidden ${
                         Element.list.price_change_percentage_24h > 0
@@ -58,27 +46,18 @@ async function handleSubmit() {
                     >
                       {Element.list.price_change_percentage_24h}
                     </p>
-               
-
               <a href="/MyWallet" className="  text-center max-lg:w-[100%] w-[20%] rounded-md bg-[#00A68C]  uppercase">
                     <button className="w-full max-sm:my-5 p-2" onClick={()=> {list != "" ? handleSubmit() :alert("insufficient balance") }} >
                      vender
                     </button>
                     </a>
-                    </div>
-                      
-                 
-             
+                    </div> 
                   </>
             );
           }))
-
           const noMap = () => (
             <p className="p-3 text-center text-xl">He has not bought any crypto</p>
-
           )
-
-
 return (
   <>
       <section className="mt-40 max-h-screen w-full flex flex-col  px-4 text-white  max-md:w-[100%]">

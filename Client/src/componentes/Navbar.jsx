@@ -1,18 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import axios from "axios";
 export function Navbar() {
   const [search, setSearch] = useState(false);
   let [open, setOpen] = useState(false);
   const [buscar, setBuscar] = useState("");
   console.log(buscar);
-
-  // function handleKeyDown(event) {
-  //   if (event.keyCode === 13) {
-  //     window.location.href = "/Search/" + buscar;
-  //   }
-  // }
-
   return (
     <>
       <div className="fixed top-0 left-0 z-10 w-full shadow-md ">
@@ -79,7 +71,6 @@ export function Navbar() {
                 }`}
               >
                 <input
-                  // onKeyDown={handleKeyDown}
                   onChange={(e) => setBuscar(e.target.value)}
                   value={buscar}
                   type="Search"

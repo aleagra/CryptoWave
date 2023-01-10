@@ -14,36 +14,29 @@ export function Exchange() {
   const [balance, setBalance] = useState("");
   const [list, setList] = useState("");
   const [usd, setNewbalance] = useState("1000");
+  
   useEffect(() => {
     const loggedUserJSON = window.localStorage.getItem("loggedNoteappUser");
     if (loggedUserJSON) {
       const user = JSON.parse(loggedUserJSON);
       setBalance(user.data.user.balance)
-     
       setUser(user);
-      
-      localStorage.setItem('test', user.data.user.balance );
-    
-      
-    }
-    
+      localStorage.setItem('test', user.data.user.balance );  
+    }  
   }, []);
-  console.log(list)
+
   async function handleSubmit() {
     console.log(coinSelect)
     const send = await axios.put(`http://localhost:5050/user/1` ,  {
       list:coinSelect,
-      balance:usd - amount,
-      
+      balance:usd - amount,      
     });
-
     const newbalance = await axios.get(`http://localhost:5050/user/1`
     )
     setNewbalance(newbalance.data.data[0].balance)
     setList(newbalance.data.data[0].list)
     window.localStorage.removeItem('test');
     localStorage.setItem('test', newbalance.data.data[0].balance);
-    
   }
   
   useEffect(() => {
@@ -56,73 +49,22 @@ export function Exchange() {
   
   const handleSelectChange = (event) => {
     setCoinSelect(event.value);
-    
   }
   
   useEffect(() => {
     setCantBought((amount / coinSelect.current_price).toFixed(4));
   }, [amount, coinSelect]);
   
-  
   return (
     <>
       <section className="max-md:p-0 max-sm:p-0 bg-[#1E2026]  justify-center m-auto xl:w-[60%] rounded-lg text-white max-xl:w-[80%]  max-md:w-[100%]">
-        <div className=" max-md:p-1">
-      
-          {/* <div className="flex justify-between ">
-            <h4 className="text-xl">Exchange</h4>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="h-6 w-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"
-              />
-            </svg>
-          </div> */}
-          {/* <div className="flex justify-between p-5">
-            <h1 className="font-bold">
-              1 <span className="font-light opacity-40">BTC</span>
-            </h1>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="h-6 w-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-              />
-            </svg>
-            <h1 className="font-bold">
-              <span className="font-light opacity-40">USD</span>
-            </h1>
-          </div> */}
+        <div className=" max-md:p-1"> 
           <div className="w-full justify-center p-5 flex flex-col h-[99vh] m-auto gap-y-10 ">
           <h1 className="uppercase text-2xl text-center">Traiding spot</h1>
-            {/* <label className="my-2" htmlFor="">
-              Get
-            </label> */}
             <div className="relative">
-              {/* <input
-                className="mb-10 mt-1 w-full  rounded-full border-2 border-borderInput bg-input p-3 pl-6 pr-24 outline-none "
-                type="text"
-              /> */}
               <label
                 for="countries"
-                class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
-              >
-           
+                class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
               </label>
               <Select 
                 className="bg-[#2A2D35]"
@@ -150,13 +92,9 @@ export function Exchange() {
                     d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                
-              
               </div>
             </div>
-            {/* <label className="my-2" htmlFor="">
-              Amount
-            </label> */}
+        
           <div className="relative">
             <input
               className=" mt-1 w-full  rounded-lg border-2 border-opacity-50 border-white bg-[#2A2D35] p-1.5 pr-16  outline-none "
@@ -171,24 +109,18 @@ export function Exchange() {
             <span className="absolute left-3 top-3 text-dm">AMOUNT</span>
             <span className="absolute right-4 top-3 text-dm">USDT</span>
             </div>
-            {/* <label className="my-2" htmlFor="">
-             Total
-            </label> */}
+         
           <div className="relative">
-           
-          <p dir="rtl" className={ ` pr-16 text-sm p-2   bg-[#2A2D35] border-2 border-white border-opacity-50 rounded-lg ${ balance < amount ? "text-[#D9475A] " : "text-[#00A68C]"} `}>
-               <span>{cantBought }</span>
-            </p>
+           <p dir="rtl" className={ ` pr-16 text-sm p-2   bg-[#2A2D35] border-2 border-white border-opacity-50 rounded-lg ${ balance < amount ? "text-[#D9475A] " : "text-[#00A68C]"} `}>
+               <span>{cantBought }</span></p>
           
             <span className="absolute left-3 top-2 text-dm ">TOTAL</span>
             <span className="absolute right-4 top-2 text-dm uppercase">{coinSelect.symbol}</span>
             </div>
             <div className="relative">
               <p>{Element.current_price}</p>
-             
-            </div>
-           
             
+            </div>
           <div className=" flex justify-center">
             <button
               className="w-2/4  rounded-full border-2 bg-[#00A68C]  border-white border-opacity-50 font-bold uppercase  p-3"
