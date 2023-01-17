@@ -57,7 +57,7 @@ export function Homepage() {
         </div>
       </section>
       <div className="xl:px-20">
-        <h1 className="m-4 text-center text-7xl font-bold text-white">
+        <h1 className="m-4 text-center text-7xl font-bold text-white max-sm:text-5xl">
           Buy crypto at true cost
         </h1>
         <p className="m-8 text-center text-3xl text-white opacity-80">
@@ -129,7 +129,7 @@ export function Homepage() {
             />
           </div>
           <div className="  flex flex-col justify-center  px-5 max-xl:m-auto  lg:w-[60%]">
-            <p className="text-base text-[#78D9E4]">300+ assets available</p>
+            <p className="text-base text-[#78D9E4] max-sm:text-center">300+ assets available</p>
             <p className="text-7xl font-bold text-white max-xl:text-center max-md:text-center max-md:text-[3rem]">
               Invest in the world's most popular assets
             </p>
@@ -137,8 +137,8 @@ export function Homepage() {
               From established industries to booming new age up-and-comers —
               pick from over a dozen of different routes to a smart investment.
             </p>
-            <a href="/Login">
-            <button className="rounded-lg border-2 border-[#78D9E4] p-4 text-white  max-sm:p-[0.5rem] max-sm:text-sm sm:w-full md:m-auto md:w-[60%] xl:m-0 ">
+            <a href="/Login" className=" max-xl:m-auto md:w-[60%]">
+            <button className="rounded-lg border-2 border-[#78D9E4] p-4 text-white  max-sm:p-[0.5rem] max-sm:text-sm sm:w-full  xl:m-0 ">
               START EARNING
             </button>
             </a>

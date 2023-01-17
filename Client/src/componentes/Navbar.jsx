@@ -66,7 +66,8 @@ export function Navbar() {
             </div>
             <div className="right-0 mr-[0.7rem] flex items-center justify-end gap-4  max-lg:w-full  ">
               <ul
-                className={`z-[-1]   flex w-full items-center  overflow-hidden bg-navbar text-center text-white transition-all  duration-100 ease-in max-lg:absolute max-lg:p-6  lg:static lg:right-6 lg:z-auto lg:flex lg:w-auto ${
+                className={`z-[-1]   flex w-full items-center  overflow-hidden bg-navbar text-center text-white transition-all  duration-100  max-lg:absolute max-lg:p-6  lg:static lg:right-6 
+                 lg:z-auto lg:flex lg:w-auto ${
                   search ? "top-12 left-0" : "top-[-7000px]"
                 }`}
               >
@@ -75,10 +76,11 @@ export function Navbar() {
                   value={buscar}
                   type="Search"
                   placeholder="Search"
-                  className=" rounded-lg border-none bg-white p-2 text-black outline-none max-lg:w-full"
+                  maxlength="40"
+                  className=" rounded-lg border-none bg-white p-2  text-black outline-none max-lg:w-full"
                 />
                 <a
-                  className="lg:hidden"
+                  className="lg:hidden absolute top-8 right-14"
                   href={buscar === "" ? "/Market" : "/Search/" + buscar}
                 >
                   <svg
@@ -86,8 +88,8 @@ export function Navbar() {
                     fill="none"
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
-                    stroke="white"
-                    className=" h-6 w-6 bg-transparent text-icons "
+                    stroke="black"
+                    className=" h-5 w-5 bg-transparent text-icons opacity-50 "
                   >
                     <path
                       strokeLinejoin="round"
@@ -126,7 +128,9 @@ export function Navbar() {
               >
                 <path
                   strokeLinejoin="round"
-                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                  d={search ? "M6 18L18 6M6 6l12 12" :  "M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"}
+
+               
                 />
               </svg>
 
