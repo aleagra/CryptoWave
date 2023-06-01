@@ -1,22 +1,84 @@
-import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 export function Navbar() {
   const [search, setSearch] = useState(false);
   let [open, setOpen] = useState(false);
   const [buscar, setBuscar] = useState("");
-  console.log(buscar);
+
+  const links = [
+    {
+      title: "Wallet",
+      ref: "/Wallet",
+    },
+    {
+      title: "Exchange",
+      ref: "/Exchange",
+    },
+    {
+      title: "Market",
+      ref: "/Market",
+    },
+  ];
+
   return (
     <>
-      <div className="fixed top-0 left-0 z-10 w-full shadow-md ">
+      {/* <nav className="fixed w-full">
+        <div className="flex items-center justify-center bg-navbar text-white max-lg:py-5">
+          <div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="white"
+              className=" absolute left-5  h-7 w-7 cursor-pointer lg:hidden"
+              onClick={() => setOpen(!open)}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d={
+                  open
+                    ? "M6 18L18 6M6 6l12 12"
+                    : "M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                }
+              />
+            </svg>
+            <Link
+              to="/"
+              className="flex w-full justify-center text-center text-lg hover:text-[#78D9E4]"
+            >
+              <img src="cryptoLogo.png" alt="" className="w-36" />
+            </Link>
+            <div
+              className={`z-[-1] flex h-full w-full justify-center overflow-hidden bg-navbar pb-12 text-center font-semibold uppercase text-white opacity-90 transition-all duration-500 ease-in max-lg:flex-col lg:static lg:right-0 lg:z-auto lg:flex lg:h-auto lg:w-auto lg:items-center lg:pl-0 lg:pb-0 ${
+                open ? "top-10 " : "top-[-700px] "
+              }`}
+            >
+              {links.map((item, index) => (
+                <Link
+                  to={item.ref}
+                  onClick={() => setOpen(!open)}
+                  className="my-12 text-3xl hover:text-[#78D9E4] lg:my-0 lg:ml-8 lg:text-[16px]"
+                  key={index}
+                >
+                  {item.title}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </nav> */}
+
+      <div className="fixed top-0 left-0 z-10 w-full">
         <div className="flex items-center  bg-navbar  py-10 text-white  lg:py-8 ">
-          <div className="flex  w-full items-center justify-between text-sm font-bold max-lg:absolute max-lg:justify-start lg:px-10">
-            <div className="flex">
+          <div className="flex  w-full items-center justify-between text-sm max-lg:absolute max-lg:justify-start lg:px-10">
+            <div className="flex items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="white"
-                className=" h-7 w-7 cursor-pointer  max-lg:ml-[0.7rem] lg:hidden"
+                className=" absolute left-0 h-7 w-7 cursor-pointer  max-lg:ml-[0.7rem] lg:hidden"
                 onClick={() => setOpen(!open)}
               >
                 <path
@@ -31,34 +93,33 @@ export function Navbar() {
               </svg>
               <Link
                 to="/"
-                className="w-40 text-center text-lg hover:text-[#78D9E4] "
+                className="w-40 text-center  text-lg hover:text-[#78D9E4] "
               >
-                MY WALLET
+                <img src="cryptoLogo.png" alt="" />
               </Link>
               <ul
-                className={` W absolute  left-0 z-[-1] flex h-screen w-full justify-center overflow-hidden bg-navbar pb-12 text-center text-white transition-all duration-500 ease-in max-lg:flex-col lg:static lg:right-0 lg:z-auto lg:flex lg:h-auto lg:w-auto lg:items-center lg:pl-0 lg:pb-0 ${
-                  open ? "top-10 " : "top-[-70000px] "
+                className={` W absolute  left-0 z-[-1] flex h-screen w-full justify-center overflow-hidden bg-navbar pb-12 text-center font-semibold uppercase text-white opacity-90 transition-all duration-500 ease-in max-lg:flex-col lg:static lg:right-0 lg:z-auto lg:flex lg:h-auto lg:w-auto lg:items-center lg:pl-0 lg:pb-0 ${
+                  open ? "top-10 " : "top-[-700px] "
                 }`}
               >
-               
                 <Link
                   to="/MyWallet"
                   onClick={() => setOpen(!open)}
-                  className="my-12 text-3xl hover:text-[#78D9E4] lg:my-0 lg:ml-8 lg:text-xl"
+                  className="my-12 text-3xl hover:text-[#78D9E4] lg:my-0 lg:ml-8 lg:text-[16px]"
                 >
                   Wallet
                 </Link>
                 <Link
                   to="/Exchange"
                   onClick={() => setOpen(!open)}
-                  className="my-12 text-3xl hover:text-[#78D9E4] lg:my-0 lg:ml-8 lg:text-xl"
+                  className="my-12 text-3xl hover:text-[#78D9E4] lg:my-0 lg:ml-8 lg:text-[16px]"
                 >
                   Exchange
                 </Link>
                 <Link
                   to="/Market"
                   onClick={() => setOpen(!open)}
-                  className="my-12 text-3xl hover:text-[#78D9E4] lg:my-0 lg:ml-8 lg:text-xl"
+                  className="my-12 text-3xl hover:text-[#78D9E4] lg:my-0 lg:ml-8 lg:text-[16px]"
                 >
                   Market
                 </Link>
@@ -68,19 +129,19 @@ export function Navbar() {
               <ul
                 className={`z-[-1]   flex w-full items-center  overflow-hidden bg-navbar text-center text-white transition-all  duration-100  max-lg:absolute max-lg:p-6  lg:static lg:right-6 
                  lg:z-auto lg:flex lg:w-auto ${
-                  search ? "top-12 left-0" : "top-[-7000px]"
-                }`}
+                   search ? "top-12 left-0" : "top-[-7000px]"
+                 }`}
               >
                 <input
                   onChange={(e) => setBuscar(e.target.value)}
                   value={buscar}
                   type="Search"
                   placeholder="Search"
-                  maxlength="40"
+                  maxLength="40"
                   className=" rounded-lg border-none bg-white p-2  text-black outline-none max-lg:w-full"
                 />
                 <a
-                  className="lg:hidden absolute top-8 right-14"
+                  className="absolute top-8 right-14 lg:hidden"
                   href={buscar === "" ? "/Market" : "/Search/" + buscar}
                 >
                   <svg
@@ -128,9 +189,11 @@ export function Navbar() {
               >
                 <path
                   strokeLinejoin="round"
-                  d={search ? "M6 18L18 6M6 6l12 12" :  "M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"}
-
-               
+                  d={
+                    search
+                      ? "M6 18L18 6M6 6l12 12"
+                      : "M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                  }
                 />
               </svg>
 

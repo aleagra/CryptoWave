@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
+import { DataContext } from "../context/DataContext";
 import { Link } from "react-router-dom";
 export function Login() {
+  const { myData, setMyData } = useContext(DataContext);
   const url = "http://localhost:5050/user/login";
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [user, setUser] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,29 +16,21 @@ export function Login() {
         username: username,
         password: password,
       });
-      window.localStorage.setItem("loggedNoteappUser", JSON.stringify(user));
+
+      setMyData(user.data.user);
       setUser(user.data.user);
       setUsername("");
       setPassword("");
-
-      console.log(user);
+      console.log(myData);
     } catch (exception) {
       console.log("Error al loguearse");
     }
   };
-  useEffect(() => {
-    const loggedUserJSON = window.localStorage.getItem("loggedNoteappUser");
-    if (loggedUserJSON) {
-      const user = JSON.parse(loggedUserJSON);
-      setUser(user.data.user);
-    }
-  }, []);
+
   const hadndleLogout = () => {
-    setUsername(null);
-    window.localStorage.removeItem("loggedNoteappUser");
+    window.localStorage.removeItem("myData");
   };
-  console.log(username);
-  console.log(user);
+
   const loginForm = () => (
     <div className="absolute z-10 m-auto flex h-full w-full flex-col items-center justify-center bg-navbar text-5xl  text-white transition-all duration-700 ease-in-out">
       <Link to="/">
@@ -154,39 +147,38 @@ export function Login() {
           />
         </svg>
       </Link>
-      <div className="w-full m-auto justify-center flex items-center flex-row max-lg:flex-col ">
-      <div className="  relative  max-sm:text-2xl text-3xl flex flex-col text-center max-lg:gap-y-10 gap-y-4 max-sm:w-full ">
-    
-       <label className="text-sm font-bold text-left"  htmlFor="">
-              Full name
-            </label>
-        <p className="relative  p-4 w-[19.5rem] rounded-lg border-2 border-borderInput bg-input px-10  text-sm outline-none max-sm:w-full max-sm:rounded-none">{user.firstname +" "+user.lastname}</p>
-        <label className="text-sm font-bold text-left" htmlFor="">
-             Email
-            </label>
-        <p className="relative  p-4 w-[19.5rem] rounded-lg border-2 border-borderInput bg-input px-10  text-sm outline-none max-sm:w-full max-sm:rounded-none">{user.email}</p>
-      <div className="flex flex-col justify-center text-center ">
-        <a href="/Login">
-          <button
-            className="m-auto mt-12 p-4 w-[19.5rem] max-md:w-full rounded-lg bg-red-600 px-10 text-lg max-sm:rounded-none"
-            onClick={hadndleLogout}
-          >
-          Log Out
-     
-          </button>
-        </a>
-      </div>
+      <div className="m-auto flex w-full flex-row items-center justify-center max-lg:flex-col ">
+        <div className="  relative  flex flex-col gap-y-4 text-center text-3xl max-lg:gap-y-10 max-sm:w-full max-sm:text-2xl ">
+          <label className="text-left text-sm font-bold" htmlFor="">
+            Full name
+          </label>
+          <p className="relative  w-[19.5rem] rounded-lg border-2 border-borderInput bg-input p-4 px-10  text-sm outline-none max-sm:w-full max-sm:rounded-none">
+            {myData.firstname + " " + myData.lastname}
+          </p>
+          <label className="text-left text-sm font-bold" htmlFor="">
+            Email
+          </label>
+          <p className="relative  w-[19.5rem] rounded-lg border-2 border-borderInput bg-input p-4 px-10  text-sm outline-none max-sm:w-full max-sm:rounded-none">
+            {myData.email}
+          </p>
+          <div className="flex flex-col justify-center text-center ">
+            <a href="/Login">
+              <button
+                className="m-auto mt-12 w-[19.5rem] rounded-lg bg-red-600 p-4 px-10 text-lg max-md:w-full max-sm:rounded-none"
+                onClick={hadndleLogout}
+              >
+                Log Out
+              </button>
+            </a>
+          </div>
         </div>
-   
       </div>
-    
     </div>
   );
   return (
     <>
       <>
-   
-        <div>{user === null ? loginForm() : logoutForm()}</div>
+        <div>{!myData ? loginForm() : logoutForm()}</div>
       </>
     </>
   );

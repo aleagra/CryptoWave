@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-export function Register() {
+function Register() {
   const url = "http://localhost:5050/user/";
   const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
@@ -210,3 +210,4 @@ export function Register() {
     </>
   );
 }
+export default Register;

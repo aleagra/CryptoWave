@@ -1,87 +1,91 @@
 import React from "react";
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Select from "react-select";
 import Swal from "sweetalert2";
-
+import { CoinContext } from "../context/CoinContext";
+import { DataContext } from "../context/DataContext";
 export function Exchange() {
-  const url =
-    "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false";
-  const [coinSelect, setCoinSelect] = useState([{}]);
-  const [coins, setCoins] = useState([]);
-  const [user, setUser] = useState([]);
+  const { myData } = useContext(DataContext);
+  const { coins } = useContext(CoinContext);
+  const [coinSelect, setCoinSelect] = useState([]);
   const [amount, setAmount] = useState("");
   const [cantBought, setCantBought] = useState();
-  const [balance, setBalance] = useState("");
-  const [list, setList] = useState("");
-  const [usd, setNewbalance] = useState("1000");
-
-  useEffect(() => {
-    const loggedUserJSON = window.localStorage.getItem("loggedNoteappUser");
-    if (loggedUserJSON) {
-      const user = JSON.parse(loggedUserJSON);
-      setBalance(user.data.user.balance);
-      setUser(user);
-      localStorage.setItem("test", user.data.user.balance);
-    }
-  }, []);
-  
+  const currentList = Array.isArray(myData?.list) ? myData?.list : [];
+  const updatedList = [...currentList, coinSelect];
 
   async function handleSubmit() {
-    console.log(coinSelect);
-    const send = await axios.put(`http://localhost:5050/user/1`, {
-      list: coinSelect,
-      balance: usd - amount,
+    const send = await axios.put(`http://localhost:5050/user/${myData?.id}`, {
+      list: updatedList,
+      balance: myData?.balance - amount,
     });
-    const newbalance = await axios.get(`http://localhost:5050/user/1`);
-    setNewbalance(newbalance.data.data[0].balance);
-    setList(newbalance.data.data[0].list);
-    window.localStorage.removeItem("test");
-    localStorage.setItem("test", newbalance.data.data[0].balance);
   }
 
-  useEffect(() => {
-    async function Coins() {
-      const coins = await axios.get(url);
-      setCoins(coins.data);
+  const handleSelectChange = (selectedOption) => {
+    const selectedCoin = {
+      id: selectedOption.value.id,
+      symbol: selectedOption.value.symbol,
+      image: selectedOption.value.image,
+      price: selectedOption.value.current_price,
+    };
+
+    let newSelectedCoins = [];
+
+    const isCoinSelected = coinSelect.some(
+      (coin) => coin.id === selectedCoin.id
+    );
+
+    if (isCoinSelected) {
+      newSelectedCoins = coinSelect.filter(
+        (coin) => coin.id !== selectedCoin.id
+      );
+      setCoinSelect(newSelectedCoins);
+    } else {
+      newSelectedCoins = [...coinSelect, selectedCoin];
+      setCoinSelect(newSelectedCoins);
     }
-    Coins();
-  }, []);
 
-  const handleSelectChange = (event) => {
-    setCoinSelect(event.value);
+    const selectedCoinData = [];
+    newSelectedCoins.forEach((coin) => {
+      selectedCoinData.push({
+        id: coin.id,
+        symbol: coin.symbol,
+        image: coin.image,
+        price: coin.current_price,
+      });
+    });
+
+    console.log(selectedCoinData);
   };
-
   useEffect(() => {
     setCantBought((amount / coinSelect.current_price).toFixed(4));
   }, [amount, coinSelect]);
 
   const Toast = Swal.mixin({
     toast: true,
-    position: 'top-end',
+    position: "top-end",
     showConfirmButton: false,
     timer: 3000,
     timerProgressBar: true,
     didOpen: (toast) => {
-      toast.addEventListener('mouseenter', Swal.stopTimer)
-      toast.addEventListener('mouseleave', Swal.resumeTimer)
-    }
-  })
-  
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    },
+  });
+
   function alerta() {
     Toast.fire({
-      icon: 'success',
-      title: 'The purchase was successful'
-    })
-    
+      icon: "success",
+      title: "The purchase was successful",
+    });
   }
-function error(){
-  Swal.fire({
-    icon: 'error',
-    title: 'insufficient balance',
-    text: 'Try again with a lower balance',
-    
-  })  }
+  function error() {
+    Swal.fire({
+      icon: "error",
+      title: "insufficient balance",
+      text: "Try again with a lower balance",
+    });
+  }
   return (
     <>
       <section className="m-auto justify-center rounded-lg  bg-[#1E2026] text-white max-xl:w-[80%] max-md:w-[100%] max-md:p-0 max-sm:p-0  xl:w-[60%]">
@@ -97,7 +101,7 @@ function error(){
                 className="bg-[#2A2D35]"
                 name="coin"
                 id="selectCoin"
-                options={coins.map((coin) => ({
+                options={coins?.map((coin) => ({
                   label: coin.name,
                   value: coin,
                 }))}
@@ -126,7 +130,7 @@ function error(){
                 className=" mt-1 w-full  rounded-lg border-2 border-white border-opacity-50 bg-[#2A2D35] p-1.5 pr-16  outline-none "
                 type="text"
                 dir="rtl"
-                maxlength="7"
+                maxLength="7"
                 onChange={(e) => {
                   setAmount(e.target.value);
                 }}
@@ -139,7 +143,9 @@ function error(){
               <p
                 dir="rtl"
                 className={` rounded-lg border-2 border-white   border-opacity-50 bg-[#2A2D35] p-2 pr-16 text-sm ${
-                  balance < amount ? "text-[#D9475A] " : "text-[#00A68C]"
+                  myData?.balance < amount
+                    ? "text-[#D9475A] "
+                    : "text-[#00A68C]"
                 } `}
               >
                 <span>{cantBought}</span>
@@ -155,18 +161,18 @@ function error(){
             </div>
             <div className=" flex justify-center">
               <button
-                className="w-2/4  rounded-full border-2 border-white  border-opacity-50 bg-[#00A68C] p-3 font-bold  uppercase "
+                className="w-2/4 rounded-full border-opacity-50 bg-[#00A68C] p-3 font-bold uppercase"
                 onClick={() => {
-                  parseInt(usd) >= amount
+                  parseInt(myData?.balance) >= amount
                     ? handleSubmit() + alerta()
-                    : error()
+                    : error();
                 }}
               >
                 Buy
               </button>
             </div>
             <p className="pr-2 text-right uppercase ">
-              Total balance: <span>{usd}</span>
+              Total balance: <span>{myData?.balance}</span>
             </p>
           </div>
         </div>

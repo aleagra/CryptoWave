@@ -18,55 +18,47 @@ div {
   }
 }
 
-
-.css-13cymwt-control{
-  background-color: #2A2D35!important;
-  outline: none!important;
-
+.css-13cymwt-control {
+  background-color: #2a2d35 !important;
+  outline: none !important;
 }
-.css-13cymwt-control:active{
-  background-color: #2A2D35!important;
+.css-13cymwt-control:active {
+  background-color: #2a2d35 !important;
 }
-.css-13cymwt-control:focus{
-  background-color: #2A2D35!important;
+.css-13cymwt-control:focus {
+  background-color: #2a2d35 !important;
 }
-/* .css-13cymwt-control:hover{
-  border: 0!important;
-} */
-#react-select-3-listbox{
-  background-color: #2A2D35!important;
-
+#react-select-3-listbox {
+  background-color: #2a2d35 !important;
 }
-#react-select-3-listbox:hover{
-  opacity: 50!important;
-  
+#react-select-3-listbox:hover {
+  opacity: 50 !important;
 }
-.css-b62m3t-container:active{
-  background-color: #2A2D35!important;
+.css-b62m3t-container:active {
+  background-color: #2a2d35 !important;
 }
-#selectCoin:active{
-  background-color: #2A2D35!important;
-  
+#selectCoin:active {
+  background-color: #2a2d35 !important;
 }
-.css-t3ipsp-control{
-  background-color: #2A2D35!important;
+.css-t3ipsp-control {
+  background-color: #2a2d35 !important;
 }
-.css-t3ipsp-control:active{
-  border: 0!important;
+.css-t3ipsp-control:active {
+  border: 0 !important;
 }
-.css-d7l1ni-option{
-  background-color: #31C880!important;
-  color: black!important;
+.css-d7l1ni-option {
+  background-color: #31c880 !important;
+  color: black !important;
 }
-.css-feonkk-Input2{
-  color: white!important;
+.css-feonkk-Input2 {
+  color: white !important;
 }
-.css-w9q2zk-Input2{
-color: white!important;
+.css-w9q2zk-Input2 {
+  color: white !important;
 }
-.css-1dimb5e-singleValue{
-  color: white!important;
+.css-1dimb5e-singleValue {
+  color: white !important;
 }
-.swa12-container{
-  width: 200px!important;
+.swa12-container {
+  width: 200px !important;
 }

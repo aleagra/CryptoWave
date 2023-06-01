@@ -1,0 +1,10 @@
+export { default as CoinList } from './CoinList';
+export * from './Exchange';
+export { default as Home } from './Home';
+export { default as HomeRegister } from './HomeRegister';
+export * from './Login';
+export * from '../pages/Market';
+export * from './Navbar';
+export { default as Register } from './Register';
+export { default as Search } from './Search';
+export * from '../pages/Wallet';
