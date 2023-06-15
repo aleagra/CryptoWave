@@ -17,8 +17,6 @@ function DataContextProvider({ children }) {
     }
   }, [myData]);
 
-  console.log(myData);
-
   return (
     <DataContext.Provider value={{ myData, setMyData }}>
       {children}

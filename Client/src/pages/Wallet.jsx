@@ -1,5 +1,6 @@
 import React from "react";
-import { Navbar } from "../componentes";
+import Navbar from "../componentes/Navbar";
+
 // import { useContext, useState } from "react";
 // import { DataContext } from "../context/DataContext";
 // import { CoinContext } from "../context/CoinContext";

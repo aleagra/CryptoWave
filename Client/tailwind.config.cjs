@@ -3,6 +3,9 @@ module.exports = {
   dark: "class",
   theme: {
     extend: {
+      fontFamily: {
+        custom:['Urbanist', 'sans-serif'],
+      },
       colors: {
         navbar: "#131517",
         notification: "#1D68F7",

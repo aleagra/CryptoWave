@@ -1,87 +1,100 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { CoinContext } from "../context/CoinContext";
+import Navbar from "./Navbar";
+import Wrapper from "../wrapper/Wrapper";
 
-import axios from "axios";
-import { Navbar } from "./Navbar";
-export default function Search() {
-  const url =
-    "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false";
-  const [coins, setCoins] = useState([]);
+function Search() {
+  const { coins } = useContext(CoinContext);
+  let { buscar } = useParams();
+  function formatNumber(number) {
+    const symbols = ["", "k", "M", "B", "T"];
 
-  useEffect(() => {
-    async function productosDB() {
-      const coins = await axios.get(url);
-      setCoins(coins.data);
-    }
-    productosDB();
-  }, []);
-  let { buscar } = useParams(); 
+    const tier = (Math.log10(Math.abs(number)) / 3) | 0;
 
+    if (tier === 0) return number;
+
+    const suffix = symbols[tier];
+    const scale = Math.pow(10, tier * 3);
+
+    const scaledNumber = number / scale;
+
+    return `${scaledNumber.toFixed(1)}${suffix}`;
+  }
   return (
     <>
       <Navbar />
-      <div className="m-auto flex items-center max-lg:pt-[5rem] lg:pt-[8rem]">
-        <table className="m-auto w-[100%]  text-left text-sm text-white lg:w-[93%]">
-          <thead>
-            <tr className=" text-lg text-[#7D7D7D]">
-              <th className="max-md:pl-4"> Coin</th>
-              <th className="p-5 text-center">Last price</th>
-              <th className="p-5 text-center max-sm:hidden">24h change</th>
-              <th className="p-5 text-center max-lg:hidden">Volume</th>
-              <th className="p-5 text-center max-lg:hidden">Trade</th>
-            </tr>
-          </thead>
-          <tbody className="">
-            {coins.map((Element, index) => {
-              if (
-                Element.name.trim().toLowerCase().includes(buscar.toLowerCase())
-              ) {
-                return (
-                  <tr className="border-opacity-30">
-                    <th className="max-lg:pl-4 ">
-                      <div className="  flex w-full items-center gap-3 text-2xl max-lg:gap-4 ">
-                        <img className=" w-6 " src={Element.image}></img>
-                        <p className="max-lg:text-xl">{Element.name}</p>
-                        <p className="text-lg uppercase text-[#7D7D7D] max-md:hidden">
-                          {Element.symbol}
-                        </p>
-                      </div>
-                    </th>
-                    <td>
-                      <p className=" text-center text-2xl font-bold">
-                        ${Element.current_price}
-                      </p>
-                    </td>
-                    <td className="max-sm:hidden">
-                      <p
-                        className={` p-5 text-center text-xl font-bold  ${
-                          Element.price_change_percentage_24h > 0
-                            ? "text-[#00A68C]"
-                            : "text-[#D9475A]"
-                        }`}
-                      >
-                        ${Element.price_change_percentage_24h}
-                      </p>
-                    </td>
-                    <td className="text-center text-xl max-lg:hidden">
-                      {Element.total_volume}
-                    </td>
+      <div className="m-auto flex w-full items-center bg-[#0d0d0d] max-lg:pt-[5rem] lg:pt-[8rem]">
+        <div className="m-auto w-[100%] text-left text-sm text-white">
+          <div className="grid grid-cols-5 pl-6 text-lg font-semibold text-[#7D7D7D]">
+            <div className="max-md:pl-4">Coin</div>
+            <div className="text-center">Last price</div>
+            <div className="text-center max-sm:hidden">24h change</div>
+            <div className="text-center max-lg:hidden">Volume</div>
+            <div className="text-center max-lg:hidden">Trade</div>
+          </div>
+          {coins?.map((Element) => {
+            const numericValue = parseFloat(
+              Element.DISPLAY?.USD.CHANGE24HOUR.substring(1)
+            );
+            if (
+              Element.CoinInfo.FullName.trim()
+                .toLowerCase()
+                .includes(buscar.toLowerCase())
+            ) {
+              return (
+                <div
+                  className="grid grid-cols-5 place-items-center rounded-md py-5 pl-6 hover:bg-white/10"
+                  key={Element.CoinInfo.Id}
+                >
+                  <div className="flex w-full gap-2">
+                    <img
+                      className="w-6"
+                      src={
+                        "https://www.cryptocompare.com" +
+                        Element.CoinInfo.ImageUrl
+                      }
+                      alt={Element.CoinInfo.FullName}
+                    />
+                    <p className="text-xl">{Element.CoinInfo.FullName}</p>
+                    <p className="text-lg uppercase text-[#7D7D7D] max-md:hidden">
+                      {Element.CoinInfo.Internal}
+                    </p>
+                  </div>
 
-                    <td className="flex items-center  justify-center p-5 max-lg:hidden">
-                      <Link to="/Exchange" className="">
-                        <button className=" w-[100%] rounded-md bg-[#00A68C] p-2 px-10 uppercase">
-                          Buy
-                        </button>
-                      </Link>
-                    </td>
-                  </tr>
-                );
-              }
-            })}
-          </tbody>
-        </table>
+                  <div className="text-center text-xl font-bold">
+                    {Element.DISPLAY?.USD.PRICE}
+                  </div>
+
+                  <div className="text-center max-sm:hidden">
+                    <p
+                      className={`text-center text-lg font-bold ${
+                        numericValue > 0 ? "text-[#00A68C]" : "text-[#D9475A]"
+                      }`}
+                    >
+                      {Element.DISPLAY?.USD.CHANGE24HOUR}
+                    </p>
+                  </div>
+
+                  <div className="text-center text-lg max-lg:hidden">
+                    {formatNumber(Element.DISPLAY?.USD.VOLUME24HOURTO)}
+                  </div>
+
+                  <div className="flex items-center justify-center  max-lg:hidden">
+                    <Link to="/Exchange">
+                      <button className="w-[100%] rounded-md bg-[#46429d] p-2 px-10">
+                        Buy
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              );
+            }
+          })}
+        </div>
       </div>
     </>
   );
 }
+export default Wrapper(Search);

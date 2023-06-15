@@ -1,15 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-export function Navbar() {
+import { NavLink } from "react-router-dom";
+import logo from "../../public/cryptoLogo.png";
+function Navbar() {
   const [search, setSearch] = useState(false);
   let [open, setOpen] = useState(false);
   const [buscar, setBuscar] = useState("");
 
   const links = [
-    {
-      title: "Wallet",
-      ref: "/Wallet",
-    },
     {
       title: "Exchange",
       ref: "/Exchange",
@@ -70,8 +67,8 @@ export function Navbar() {
       </nav> */}
 
       <div className="fixed top-0 left-0 z-10 w-full">
-        <div className="flex items-center  bg-navbar  py-10 text-white  lg:py-8 ">
-          <div className="flex  w-full items-center justify-between text-sm max-lg:absolute max-lg:justify-start lg:px-10">
+        <div className="flex items-center  bg-[#0d0d0d]  py-10 text-white  lg:py-8 ">
+          <div className="flex  w-full items-center justify-between px-[10rem] text-sm max-lg:absolute max-lg:justify-start">
             <div className="flex items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -91,43 +88,36 @@ export function Navbar() {
                   }
                 />
               </svg>
-              <Link
+              <NavLink
                 to="/"
-                className="w-40 text-center  text-lg hover:text-[#78D9E4] "
+                className="w-40 text-center  text-lg hover:text-[#47449f] "
               >
-                <img src="cryptoLogo.png" alt="" />
-              </Link>
+                <img src={logo} alt="" />
+              </NavLink>
               <ul
-                className={` W absolute  left-0 z-[-1] flex h-screen w-full justify-center overflow-hidden bg-navbar pb-12 text-center font-semibold uppercase text-white opacity-90 transition-all duration-500 ease-in max-lg:flex-col lg:static lg:right-0 lg:z-auto lg:flex lg:h-auto lg:w-auto lg:items-center lg:pl-0 lg:pb-0 ${
+                className={`absolute left-0 z-[-1] flex h-screen w-full justify-center gap-12 overflow-hidden pb-12 text-center font-semibold text-white opacity-90 transition-all duration-500 ease-in max-lg:flex-col lg:static lg:right-0 lg:z-auto lg:flex lg:h-auto lg:w-auto lg:items-center lg:pl-0 lg:pb-0 ${
                   open ? "top-10 " : "top-[-700px] "
                 }`}
               >
-                <Link
-                  to="/MyWallet"
-                  onClick={() => setOpen(!open)}
-                  className="my-12 text-3xl hover:text-[#78D9E4] lg:my-0 lg:ml-8 lg:text-[16px]"
-                >
-                  Wallet
-                </Link>
-                <Link
+                <NavLink
                   to="/Exchange"
                   onClick={() => setOpen(!open)}
-                  className="my-12 text-3xl hover:text-[#78D9E4] lg:my-0 lg:ml-8 lg:text-[16px]"
+                  className="my-12 ml-12 text-3xl hover:text-[#47449f] lg:my-0  lg:text-[16px]"
                 >
                   Exchange
-                </Link>
-                <Link
+                </NavLink>
+                <NavLink
                   to="/Market"
                   onClick={() => setOpen(!open)}
-                  className="my-12 text-3xl hover:text-[#78D9E4] lg:my-0 lg:ml-8 lg:text-[16px]"
+                  className="my-12 text-3xl hover:text-[#47449f] lg:my-0  lg:text-[16px]"
                 >
                   Market
-                </Link>
+                </NavLink>
               </ul>
             </div>
-            <div className="right-0 mr-[0.7rem] flex items-center justify-end gap-4  max-lg:w-full  ">
+            <div className="right-0 flex items-center justify-end gap-8  max-lg:w-full">
               <ul
-                className={`z-[-1]   flex w-full items-center  overflow-hidden bg-navbar text-center text-white transition-all  duration-100  max-lg:absolute max-lg:p-6  lg:static lg:right-6 
+                className={`overflow-hiddentext-center z-[-1] flex w-full  items-center text-white transition-all  duration-100  max-lg:absolute  lg:static
                  lg:z-auto lg:flex lg:w-auto ${
                    search ? "top-12 left-0" : "top-[-7000px]"
                  }`}
@@ -137,8 +127,8 @@ export function Navbar() {
                   value={buscar}
                   type="Search"
                   placeholder="Search"
-                  maxLength="40"
-                  className=" rounded-lg border-none bg-white p-2  text-black outline-none max-lg:w-full"
+                  maxLength="20"
+                  className=" rounded-xl bg-[#23232c] p-2 px-4 text-white outline-none max-lg:w-full"
                 />
                 <a
                   className="absolute top-8 right-14 lg:hidden"
@@ -150,7 +140,7 @@ export function Navbar() {
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
                     stroke="black"
-                    className=" h-5 w-5 bg-transparent text-icons opacity-50 "
+                    className=" h-6 w-6 bg-transparent text-icons opacity-50 "
                   >
                     <path
                       strokeLinejoin="round"
@@ -197,7 +187,7 @@ export function Navbar() {
                 />
               </svg>
 
-              <Link to="/Login">
+              <NavLink to="/Login">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -211,7 +201,7 @@ export function Navbar() {
                     d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
                   />
                 </svg>
-              </Link>
+              </NavLink>
             </div>
           </div>
         </div>
@@ -219,3 +209,4 @@ export function Navbar() {
     </>
   );
 }
+export default Navbar;

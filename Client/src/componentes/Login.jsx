@@ -32,7 +32,7 @@ export function Login() {
   };
 
   const loginForm = () => (
-    <div className="absolute z-10 m-auto flex h-full w-full flex-col items-center justify-center bg-navbar text-5xl  text-white transition-all duration-700 ease-in-out">
+    <div className="absolute z-10 m-auto flex h-full w-full flex-col items-center justify-center  text-5xl  text-white transition-all duration-700 ease-in-out">
       <Link to="/">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +40,7 @@ export function Login() {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="white"
-          className="absolute top-1 left-0 z-10 ml-5  mt-6 h-6 w-6 "
+          className="absolute top-6 left-0 z-10 ml-10  mt-6 h-6 w-6 "
         >
           <path
             strokeLinecap="round"
@@ -49,7 +49,7 @@ export function Login() {
           />
         </svg>
       </Link>
-      <h1 className="absolute top-0 ml-5 mt-6  text-xl font-bold text-white">
+      <h1 className="absolute top-0 ml-5 mt-12 text-xl font-bold text-white">
         To continue, sign in
       </h1>
       <div className="flex h-[90%] items-center">
@@ -112,10 +112,10 @@ export function Login() {
 
           <div className="flex flex-col justify-center text-center ">
             <button
-              className="m-auto my-10 h-10 w-[19.5rem] rounded-lg bg-btn px-10 text-lg"
+              className="m-auto my-10 h-10 w-[19.5rem] rounded-lg bg-[#4444a0] px-10 text-lg"
               type="submit"
             >
-              LOG IN
+              Log in
             </button>
             <p className=" text-sm">
               You do not have an account?{" "}

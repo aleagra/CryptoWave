@@ -1,5 +1,6 @@
 import React from "react";
-import { CoinList, Home, HomeRegister, Navbar } from "../componentes";
+import { CoinList, Home, HomeRegister } from "../componentes";
+import Navbar from "../componentes/Navbar";
 export function Homepage() {
   return (
     <>

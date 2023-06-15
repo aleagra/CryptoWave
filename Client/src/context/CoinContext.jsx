@@ -3,15 +3,20 @@ import axios from "axios";
 export const CoinContext = createContext();
 
 function CoinContextProvider({ children }) {
-  const [coins, setCoins] = useState(null);
+  const [coins, setCoins] = useState([]);
   const url =
-    "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false";
+    "https://min-api.cryptocompare.com/data/top/totalvolfull?limit=100&tsym=USD&api_key=dcfdfec656ebe0c95f2f72a0aaa4e2d321e2f7e714606f80f98ad1b8a65d79d4";
   useEffect(() => {
-    async function productosDB() {
-      const coins = await axios.get(url);
-      setCoins(coins.data);
+    async function fetchData() {
+      try {
+        const response = await axios.get(url);
+        setCoins(response.data.Data);
+      } catch (error) {
+        console.error("Error fetching data from API:", error);
+      }
     }
-    productosDB();
+
+    fetchData();
   }, []);
 
   return (

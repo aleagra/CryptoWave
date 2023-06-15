@@ -5,7 +5,9 @@ import Select from "react-select";
 import Swal from "sweetalert2";
 import { CoinContext } from "../context/CoinContext";
 import { DataContext } from "../context/DataContext";
-export function Exchange() {
+import Navbar from "./Navbar";
+import Wrapper from "../wrapper/Wrapper";
+function Exchange() {
   const { myData } = useContext(DataContext);
   const { coins } = useContext(CoinContext);
   const [coinSelect, setCoinSelect] = useState([]);
@@ -88,17 +90,15 @@ export function Exchange() {
   }
   return (
     <>
-      <section className="m-auto justify-center rounded-lg  bg-[#1E2026] text-white max-xl:w-[80%] max-md:w-[100%] max-md:p-0 max-sm:p-0  xl:w-[60%]">
-        <div className=" max-md:p-1">
-          <div className="m-auto flex h-[99vh] w-full flex-col justify-center gap-y-10 p-5 ">
-            <h1 className="text-center text-2xl uppercase">Traiding spot</h1>
+      <div className="grid grid-cols-[300px,1fr,300px] grid-rows-[100px,1fr] gap-12 bg-[#121418]">
+        <Navbar />
+        <div className="col-start-1 row-start-2 h-[700px] w-full rounded-lg bg-[#121418] py-20 max-2xl:h-[450px] max-2xl:py-6"></div>
+        <div className="col-start-2 row-start-2 h-[700px] w-full rounded-lg bg-[#121418] py-20 max-2xl:h-[450px] max-2xl:py-6"></div>
+        <section className="col-start-3 row-start-2 flex h-[700px] justify-center rounded-lg  py-20 text-white max-2xl:h-[450px] max-2xl:py-6">
+          <div className=" m-auto flex w-full  flex-col gap-y-6 p-5">
+            <h1 className="text-center text-xl">Traiding spot</h1>
             <div className="relative">
-              <label
-                for="countries"
-                class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
-              ></label>
               <Select
-                className="bg-[#2A2D35]"
                 name="coin"
                 id="selectCoin"
                 options={coins?.map((coin) => ({
@@ -107,7 +107,7 @@ export function Exchange() {
                 }))}
                 onChange={handleSelectChange}
               />
-              <div className="absolute top-4 right-12 flex">
+              <div className="absolute top-2 right-12 flex">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -127,7 +127,7 @@ export function Exchange() {
 
             <div className="relative">
               <input
-                className=" mt-1 w-full  rounded-lg border-2 border-white border-opacity-50 bg-[#2A2D35] p-1.5 pr-16  outline-none "
+                className="w-full rounded-md bg-[#1b1f24] py-3 pr-16 outline-none"
                 type="text"
                 dir="rtl"
                 maxLength="7"
@@ -135,14 +135,14 @@ export function Exchange() {
                   setAmount(e.target.value);
                 }}
               />
-              <span className="text-dm absolute left-3 top-3">AMOUNT</span>
-              <span className="text-dm absolute right-4 top-3">USDT</span>
+              <span className="absolute left-3 top-4 text-xs">AMOUNT</span>
+              <span className="absolute right-4 top-4 text-xs">USDT</span>
             </div>
 
             <div className="relative">
               <p
                 dir="rtl"
-                className={` rounded-lg border-2 border-white   border-opacity-50 bg-[#2A2D35] p-2 pr-16 text-sm ${
+                className={` rounded-md border-opacity-50 bg-[#1b1f24] py-3 pr-16 text-sm ${
                   myData?.balance < amount
                     ? "text-[#D9475A] "
                     : "text-[#00A68C]"
@@ -151,8 +151,8 @@ export function Exchange() {
                 <span>{cantBought}</span>
               </p>
 
-              <span className="text-dm absolute left-3 top-2 ">TOTAL</span>
-              <span className="text-dm absolute right-4 top-2 uppercase">
+              <span className="absolute left-3 top-4 text-xs">TOTAL</span>
+              <span className="absolute right-4 top-4 text-xs uppercase">
                 {coinSelect.symbol}
               </span>
             </div>
@@ -161,7 +161,7 @@ export function Exchange() {
             </div>
             <div className=" flex justify-center">
               <button
-                className="w-2/4 rounded-full border-opacity-50 bg-[#00A68C] p-3 font-bold uppercase"
+                className="w-full rounded-md bg-[#00A68C] py-3 font-bold uppercase"
                 onClick={() => {
                   parseInt(myData?.balance) >= amount
                     ? handleSubmit() + alerta()
@@ -171,12 +171,13 @@ export function Exchange() {
                 Buy
               </button>
             </div>
-            <p className="pr-2 text-right uppercase ">
-              Total balance: <span>{myData?.balance}</span>
+            <p className="text-center">
+              Total balance: <span className="">1259 USD</span>
             </p>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </>
   );
 }
+export default Wrapper(Exchange);

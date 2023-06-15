@@ -2,11 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-div {
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@1,200;1,300;1,500;1,700&display=swap");
+
+@layer base {
+  html {
+    font-family: "Urbanist", sans-serif;
+  }
 }
 @layer base {
   body {
-    @apply h-screen bg-navbar;
+    @apply h-screen bg-[#0d0d0d];
   }
 }
 @layer components {
@@ -19,29 +24,33 @@ div {
 }
 
 .css-13cymwt-control {
-  background-color: #2a2d35 !important;
+  background-color: #1b1f24 !important;
   outline: none !important;
+  border: 0 !important;
 }
 .css-13cymwt-control:active {
-  background-color: #2a2d35 !important;
+  background-color: #1b1f24 !important;
+  border: 0 !important;
 }
 .css-13cymwt-control:focus {
-  background-color: #2a2d35 !important;
+  background-color: #1b1f24 !important;
+  border: 0 !important;
 }
 #react-select-3-listbox {
-  background-color: #2a2d35 !important;
+  background-color: #1b1f24 !important;
 }
 #react-select-3-listbox:hover {
   opacity: 50 !important;
 }
 .css-b62m3t-container:active {
-  background-color: #2a2d35 !important;
+  background-color: #1b1f24 !important;
+  border: 0 !important;
 }
 #selectCoin:active {
-  background-color: #2a2d35 !important;
+  background-color: #1b1f24 !important;
 }
 .css-t3ipsp-control {
-  background-color: #2a2d35 !important;
+  background-color: #1b1f24 !important;
 }
 .css-t3ipsp-control:active {
   border: 0 !important;
