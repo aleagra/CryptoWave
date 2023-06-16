@@ -4,6 +4,7 @@ export const DataContext = createContext();
 
 function DataContextProvider({ children }) {
   const [myData, setMyData] = useState(null);
+  const [amount, setAmount] = useState(1000);
   useEffect(() => {
     const storedData = localStorage.getItem("myData");
     if (storedData) {
@@ -18,7 +19,7 @@ function DataContextProvider({ children }) {
   }, [myData]);
 
   return (
-    <DataContext.Provider value={{ myData, setMyData }}>
+    <DataContext.Provider value={{ myData, setMyData, amount, setAmount }}>
       {children}
     </DataContext.Provider>
   );

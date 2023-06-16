@@ -8,10 +8,9 @@ import { DataContext } from "../context/DataContext";
 import Navbar from "./Navbar";
 import Wrapper from "../wrapper/Wrapper";
 function Exchange() {
-  const { myData } = useContext(DataContext);
+  const { myData, amount } = useContext(DataContext);
   const { coins } = useContext(CoinContext);
   const [coinSelect, setCoinSelect] = useState([]);
-  const [amount, setAmount] = useState("");
   const [cantBought, setCantBought] = useState();
   const currentList = Array.isArray(myData?.list) ? myData?.list : [];
   const updatedList = [...currentList, coinSelect];
@@ -102,8 +101,8 @@ function Exchange() {
                 name="coin"
                 id="selectCoin"
                 options={coins?.map((coin) => ({
-                  label: coin.name,
-                  value: coin,
+                  label: coin.CoinInfo.FullName,
+                  value: coin.DISPLAY?.USD.PRICE,
                 }))}
                 onChange={handleSelectChange}
               />
@@ -148,7 +147,7 @@ function Exchange() {
                     : "text-[#00A68C]"
                 } `}
               >
-                <span>{cantBought}</span>
+                <span>{amount}</span>
               </p>
 
               <span className="absolute left-3 top-4 text-xs">TOTAL</span>
