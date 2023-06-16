@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { UserIcon } from "../utilities/icons";
+import { ArrowIcon, UserIcon } from "../utilities/icons";
 import MailIcon from "../utilities/icons/MailIcon";
 import Padlock from "../utilities/icons/Padlock";
 function Register() {
@@ -37,7 +37,7 @@ function Register() {
     <>
       <div className="absolute z-10 m-auto flex h-full w-full flex-col items-center justify-center text-5xl  text-white transition-all duration-700 ease-in-out">
         <Link to="/">
-          <UserIcon />
+          <ArrowIcon />
         </Link>
         <h1 className="absolute top-0 ml-5 mt-12 text-xl font-bold text-white">
           Create account
@@ -59,7 +59,7 @@ function Register() {
               <UserIcon />
             </div>
             <div className="relative m-auto flex  w-max justify-around gap-6 text-left">
-              <div className="relative flex flex-col">
+              <div className=" flex flex-col">
                 <label className=" text-sm font-bold" htmlFor="">
                   First name
                 </label>
