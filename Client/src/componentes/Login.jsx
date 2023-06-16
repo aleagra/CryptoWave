@@ -2,6 +2,8 @@ import React, { useState, useContext } from "react";
 import axios from "axios";
 import { DataContext } from "../context/DataContext";
 import { Link } from "react-router-dom";
+import { ArrowIcon, UserIcon } from "../utilities/icons";
+import Padlock from "../utilities/icons/Padlock";
 export function Login() {
   const { myData, setMyData } = useContext(DataContext);
   const url = "http://localhost:5050/user/login";
@@ -34,20 +36,7 @@ export function Login() {
   const loginForm = () => (
     <div className="absolute z-10 m-auto flex h-full w-full flex-col items-center justify-center  text-5xl  text-white transition-all duration-700 ease-in-out">
       <Link to="/">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="white"
-          className="absolute top-6 left-0 z-10 ml-10  mt-6 h-6 w-6 "
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
-          />
-        </svg>
+        <ArrowIcon />
       </Link>
       <h1 className="absolute top-0 ml-5 mt-12 text-xl font-bold text-white">
         To continue, sign in
@@ -66,20 +55,7 @@ export function Login() {
               onChange={(e) => setUsername(e.target.value)}
               required
             />
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="absolute bottom-0 top-11 left-3 h-5 w-5"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
-              />
-            </svg>
+            <UserIcon />
           </div>
 
           <div className="relative m-auto flex  w-max flex-col text-left">
@@ -94,20 +70,7 @@ export function Login() {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="white"
-              className="absolute bottom-0 top-11 left-3 h-5 w-5"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
-              />
-            </svg>
+            <Padlock />
           </div>
 
           <div className="flex flex-col justify-center text-center ">
