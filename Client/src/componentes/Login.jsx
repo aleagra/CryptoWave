@@ -1,33 +1,31 @@
 import React, { useState, useContext } from "react";
-import axios from "axios";
 import { DataContext } from "../context/DataContext";
 import { Link } from "react-router-dom";
-import { ArrowIcon, UserIcon } from "../utilities/icons";
-import Padlock from "../utilities/icons/Padlock";
+import { ArrowIcon, Padlock, UserIcon } from "../utilities/icons";
 export function Login() {
   const { myData, setMyData } = useContext(DataContext);
-  const url = "http://localhost:5050/user/login";
+  // const url = "http://localhost:5050/user/login";
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
 
-    try {
-      const user = await axios.post(url, {
-        username: username,
-        password: password,
-      });
+  //   try {
+  //     const user = await axios.post(url, {
+  //       username: username,
+  //       password: password,
+  //     });
 
-      setMyData(user.data.user);
-      setUser(user.data.user);
-      setUsername("");
-      setPassword("");
-      console.log(myData);
-    } catch (exception) {
-      console.log("Error al loguearse");
-    }
-  };
+  //     setMyData(user.data.user);
+  //     setUser(user.data.user);
+  //     setUsername("");
+  //     setPassword("");
+  //     console.log(myData);
+  //   } catch (exception) {
+  //     console.log("Error al loguearse");
+  //   }
+  // };
 
   const hadndleLogout = () => {
     window.localStorage.removeItem("myData");
@@ -42,7 +40,7 @@ export function Login() {
         To continue, sign in
       </h1>
       <div className="flex h-[90%] items-center">
-        <form className="w-screen  justify-center" onSubmit={handleSubmit}>
+        <form className="w-screen  justify-center">
           <div className="relative m-auto flex w-max flex-col text-left">
             <label className="text-sm font-bold" htmlFor="">
               Username
@@ -128,7 +126,7 @@ export function Login() {
             <a href="/Login">
               <button
                 className="m-auto mt-12 w-[19.5rem] rounded-lg bg-red-600 p-4 px-10 text-lg max-md:w-full max-sm:rounded-none"
-                onClick={hadndleLogout}
+                // onClick={hadndleLogout}
               >
                 Log Out
               </button>

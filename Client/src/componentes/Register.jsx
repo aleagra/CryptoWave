@@ -1,38 +1,35 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowIcon, UserIcon } from "../utilities/icons";
-import MailIcon from "../utilities/icons/MailIcon";
-import Padlock from "../utilities/icons/Padlock";
+import { ArrowIcon, MailIcon, Padlock, UserIcon } from "../utilities/icons";
+
 function Register() {
-  const url = "http://localhost:5050/user/";
   const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
 
-    try {
-      var users = {
-        user: user,
-        firstname: firstname,
-        lastname: lastname,
-        email: email,
-        password: password,
-      };
+  //   try {
+  //     var users = {
+  //       user: user,
+  //       firstname: firstname,
+  //       lastname: lastname,
+  //       email: email,
+  //       password: password,
+  //     };
 
-      const resp = await axios.post(url, users, {
-        headers: { "Content-Type": "application/json" },
-      });
-      window.location.href = "/Login";
-      console.log(resp.data);
-    } catch (error) {
-      console.log(error.response);
-    }
-  };
+  //     const resp = await axios.post(url, users, {
+  //       headers: { "Content-Type": "application/json" },
+  //     });
+  //     window.location.href = "/Login";
+  //     console.log(resp.data);
+  //   } catch (error) {
+  //     console.log(error.response);
+  //   }
+  // };
   return (
     <>
       <div className="absolute z-10 m-auto flex h-full w-full flex-col items-center justify-center text-5xl  text-white transition-all duration-700 ease-in-out">
@@ -43,7 +40,7 @@ function Register() {
           Create account
         </h1>
         <div className="flex h-[90%] items-center">
-          <form className="w-screen  justify-center" onSubmit={handleSubmit}>
+          <form className="w-screen  justify-center">
             <div className="relative m-auto flex w-max flex-col text-left">
               <label className="text-sm font-bold" htmlFor="">
                 Username
