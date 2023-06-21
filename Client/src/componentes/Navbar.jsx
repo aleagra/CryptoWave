@@ -67,90 +67,77 @@ function Navbar() {
       </nav> */}
 
       <div className="fixed top-0 left-0 z-10 w-full">
-        <div className="flex items-center  bg-[#0d0d0d] text-white  lg:py-4">
-          <div className="flex  w-full items-center justify-between px-[10rem] text-sm max-2xl:px-[5rem] max-lg:absolute max-lg:justify-start">
-            <div className="flex items-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="white"
-                className=" absolute left-0 h-7 w-7 cursor-pointer  max-lg:ml-[0.7rem] lg:hidden"
-                onClick={() => setOpen(!open)}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d={
-                    open
-                      ? "M6 18L18 6M6 6l12 12"
-                      : "M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                  }
-                />
-              </svg>
+        <div className="flex  w-full items-center justify-between bg-[#0d0d0d] py-6 px-[10rem] text-sm max-2xl:px-[5rem] max-lg:absolute max-md:justify-center max-md:px-0">
+          <div className="flex items-center ">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="white"
+              className=" absolute left-0 h-7 w-7 cursor-pointer  max-lg:ml-6 lg:hidden"
+              onClick={() => setOpen(!open)}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d={
+                  open
+                    ? "M6 18L18 6M6 6l12 12"
+                    : "M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                }
+              />
+            </svg>
+            <NavLink
+              to="/"
+              className="w-40 text-center text-lg  hover:text-[#47449f] max-md:w-36"
+            >
+              <img src={logo} alt="" />
+            </NavLink>
+            <ul
+              className={`absolute left-0 flex h-screen w-full justify-center gap-12 overflow-hidden bg-[#0d0d0d] pb-12 text-center font-semibold text-white transition-all duration-200 max-lg:flex-col max-md:px-10 lg:static lg:right-0 lg:z-auto lg:flex lg:h-auto lg:w-auto lg:items-center lg:pl-0 lg:pb-0 ${
+                open ? "top-16 " : "top-[-6000px] "
+              }`}
+            >
               <NavLink
-                to="/"
-                className="w-40 text-center  text-lg hover:text-[#47449f] "
+                to="/Exchange"
+                onClick={() => setOpen(!open)}
+                className="my-12 text-3xl hover:text-[#47449f] lg:my-0  lg:text-[16px]"
               >
-                <img src={logo} alt="" />
+                Exchange
               </NavLink>
-              <ul
-                className={`absolute left-0 z-[-1] flex h-screen w-full justify-center gap-12 overflow-hidden pb-12 text-center font-semibold text-white opacity-90 transition-all duration-500 ease-in max-lg:flex-col lg:static lg:right-0 lg:z-auto lg:flex lg:h-auto lg:w-auto lg:items-center lg:pl-0 lg:pb-0 ${
-                  open ? "top-10 " : "top-[-700px] "
-                }`}
+              <NavLink
+                to="/Market"
+                onClick={() => setOpen(!open)}
+                className="my-12 text-3xl hover:text-[#47449f] lg:my-0  lg:text-[16px]"
               >
-                <NavLink
-                  to="/Exchange"
-                  onClick={() => setOpen(!open)}
-                  className="my-12 ml-12 text-3xl hover:text-[#47449f] lg:my-0  lg:text-[16px]"
-                >
-                  Exchange
-                </NavLink>
-                <NavLink
-                  to="/Market"
-                  onClick={() => setOpen(!open)}
-                  className="my-12 text-3xl hover:text-[#47449f] lg:my-0  lg:text-[16px]"
-                >
-                  Market
-                </NavLink>
-              </ul>
-            </div>
-            <div className="right-0 flex items-center justify-end gap-8  max-lg:w-full">
-              <ul
-                className={`overflow-hiddentext-center z-[-1] flex w-full  items-center text-white transition-all  duration-100  max-lg:absolute  lg:static
+                Market
+              </NavLink>
+              <NavLink
+                to="/Login"
+                onClick={() => setOpen(!open)}
+                className="my-12 text-3xl hover:text-[#47449f] lg:my-0  lg:text-[16px]"
+              >
+                Profile
+              </NavLink>
+            </ul>
+          </div>
+          <div className="right-0 flex items-center justify-end gap-8 max-md:absolute max-md:mr-6  max-md:w-fit max-md:gap-0">
+            <ul
+              className={`z-[-1] flex w-full items-center overflow-hidden  text-center text-white transition-all  duration-100  max-lg:absolute  lg:static
                  lg:z-auto lg:flex lg:w-auto ${
                    search ? "top-12 left-0" : "top-[-7000px]"
                  }`}
-              >
-                <input
-                  onChange={(e) => setBuscar(e.target.value)}
-                  value={buscar}
-                  type="Search"
-                  placeholder="Search"
-                  maxLength="20"
-                  className=" rounded-xl bg-[#23232c] p-2 px-4 text-white outline-none max-lg:w-full"
-                />
-                <a
-                  className="absolute top-8 right-14 lg:hidden"
-                  href={buscar === "" ? "/Market" : "/Search/" + buscar}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="black"
-                    className=" h-6 w-6 bg-transparent text-icons opacity-50 "
-                  >
-                    <path
-                      strokeLinejoin="round"
-                      d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                    />
-                  </svg>
-                </a>
-              </ul>
+            >
+              <input
+                onChange={(e) => setBuscar(e.target.value)}
+                value={buscar}
+                type="Search"
+                placeholder="Search"
+                maxLength="20"
+                className=" rounded-xl bg-[#23232c] p-2 px-4 text-white outline-none max-lg:w-full"
+              />
               <a
-                className="max-lg:hidden"
+                className="absolute top-8 right-14 lg:hidden"
                 href={buscar === "" ? "/Market" : "/Search/" + buscar}
               >
                 <svg
@@ -158,8 +145,8 @@ function Navbar() {
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
-                  stroke="white"
-                  className=" h-6 w-6 bg-transparent text-icons "
+                  stroke="black"
+                  className=" h-6 w-6 bg-transparent text-icons opacity-50"
                 >
                   <path
                     strokeLinejoin="round"
@@ -167,42 +154,60 @@ function Navbar() {
                   />
                 </svg>
               </a>
-
+            </ul>
+            <a
+              className="max-lg:hidden"
+              href={buscar === "" ? "/Market" : "/Search/" + buscar}
+            >
               <svg
-                onClick={() => setSearch(!search)}
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="white"
-                className=" h-6 w-6 bg-transparent text-icons lg:hidden"
+                className=" h-6 w-6 bg-transparent text-icons"
               >
                 <path
                   strokeLinejoin="round"
-                  d={
-                    search
-                      ? "M6 18L18 6M6 6l12 12"
-                      : "M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                  }
+                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
                 />
               </svg>
+            </a>
 
-              <NavLink to="/Login">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="white"
-                  className=" h-6 w-7 text-icons"
-                >
-                  <path
-                    strokeLinejoin="round"
-                    d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                </svg>
-              </NavLink>
-            </div>
+            <svg
+              onClick={() => setSearch(!search)}
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="white"
+              className=" h-6 w-6 bg-transparent text-icons lg:hidden"
+            >
+              <path
+                strokeLinejoin="round"
+                d={
+                  search
+                    ? "M6 18L18 6M6 6l12 12"
+                    : "M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                }
+              />
+            </svg>
+
+            <NavLink to="/Login">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="white"
+                className=" h-6 w-7 text-icons max-md:hidden"
+              >
+                <path
+                  strokeLinejoin="round"
+                  d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+              </svg>
+            </NavLink>
           </div>
         </div>
       </div>

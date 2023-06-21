@@ -39,7 +39,7 @@ function Register() {
         <h1 className="absolute top-0 ml-5 mt-12 text-xl font-bold text-white">
           Create account
         </h1>
-        <div className="flex h-[90%] items-center">
+        <div className="flex h-[90%] items-center max-md:mt-10">
           <form className="w-screen  justify-center">
             <div className="relative m-auto flex w-max flex-col text-left">
               <label className="text-sm font-bold" htmlFor="">
