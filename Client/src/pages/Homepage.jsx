@@ -4,7 +4,7 @@ import Navbar from "../componentes/Navbar";
 export function Homepage() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Home />
       <CoinList />
       <HomeRegister />
