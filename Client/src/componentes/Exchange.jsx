@@ -56,8 +56,6 @@ function Exchange() {
         price: coin.current_price,
       });
     });
-
-    console.log(selectedCoinData);
   };
   useEffect(() => {
     setCantBought((amount / coinSelect.current_price).toFixed(4));

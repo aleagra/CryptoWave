@@ -5,16 +5,16 @@ import Wrapper from "../wrapper/Wrapper";
 function CoinList() {
   const { coins } = useContext(CoinContext);
   return (
-    <div className=" w-full  ">
-      <h1 className="my-4 text-center text-[4rem] font-bold text-white max-2xl:text-3xl max-sm:text-5xl">
+    <div className="m-auto w-full">
+      <h1 className="my-4 text-center text-[4rem] font-bold text-white max-2xl:text-[3.5rem] max-sm:text-5xl">
         Buy <span className="text-[#45419d]">crypto</span> at true cost
       </h1>
-      <p className="mb-16 text-center text-[1.5rem] font-bold text-white/50 max-2xl:my-6">
+      <p className="mb-16 text-center text-[1.5rem] font-bold text-white/50 max-2xl:mb-10 max-2xl:text-[1.2rem]">
         Whenever we can, we provide real-time data for free.
       </p>
       <div className="m-auto flex items-center">
         <div className="m-auto w-[100%] text-left text-sm text-white">
-          <div className="grid grid-cols-4 pl-6 text-lg text-[#7D7D7D]">
+          <div className="grid grid-cols-4 pl-6 text-lg text-[#7D7D7D] max-2xl:text-base">
             <div className="max-md:pl-4">Coin</div>
             <div className="text-center">Last price</div>
             <div className="text-center max-sm:hidden">24h change</div>
@@ -40,19 +40,21 @@ function CoinList() {
                       }
                       alt={Element.CoinInfo.FullName}
                     />
-                    <p className="text-xl">{Element.CoinInfo.FullName}</p>
-                    <p className="text-lg uppercase text-[#7D7D7D] max-md:hidden">
+                    <p className="text-xl max-2xl:text-lg">
+                      {Element.CoinInfo.FullName}
+                    </p>
+                    <p className="text-lg uppercase text-[#7D7D7D] max-2xl:text-base max-md:hidden">
                       {Element.CoinInfo.Internal}
                     </p>
                   </div>
 
-                  <div className="text-center text-xl font-bold">
+                  <div className="text-center text-xl font-bold max-2xl:text-lg">
                     {Element.DISPLAY.USD.PRICE}
                   </div>
 
                   <div className="text-center max-sm:hidden">
                     <p
-                      className={`text-center text-lg font-bold ${
+                      className={`text-center text-lg font-bold max-2xl:text-base ${
                         numericValue > 0 ? "text-[#00A68C]" : "text-[#D9475A]"
                       }`}
                     >
@@ -60,9 +62,9 @@ function CoinList() {
                     </p>
                   </div>
 
-                  <div className="flex items-center justify-center  max-lg:hidden">
+                  <div className="flex items-center justify-center">
                     <Link to="/Exchange">
-                      <button className="w-[100%] rounded-md bg-[#46429d] p-2 px-10 uppercase">
+                      <button className="w-[100%] rounded-md bg-[#46429d] p-2 px-10 uppercase max-2xl:text-sm">
                         Buy
                       </button>
                     </Link>

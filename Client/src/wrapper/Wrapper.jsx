@@ -3,7 +3,9 @@ const Wrapper = (Component, style) =>
   function HOC() {
     return (
       <>
-        <section className={`flex max-h-screen flex-col  px-[10rem] ${style} `}>
+        <section
+          className={`flex min-h-screen flex-col  px-[10rem] max-2xl:px-[5rem] ${style} `}
+        >
           <Component />
         </section>
       </>

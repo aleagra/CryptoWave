@@ -27,9 +27,9 @@ export function Login() {
   //   }
   // };
 
-  const hadndleLogout = () => {
-    window.localStorage.removeItem("myData");
-  };
+  // const hadndleLogout = () => {
+  //   window.localStorage.removeItem("myData");
+  // };
 
   const loginForm = () => (
     <div className="absolute z-10 m-auto flex h-full w-full flex-col items-center justify-center  text-5xl  text-white transition-all duration-700 ease-in-out">

@@ -67,8 +67,8 @@ function Navbar() {
       </nav> */}
 
       <div className="fixed top-0 left-0 z-10 w-full">
-        <div className="flex items-center  bg-[#0d0d0d]  py-10 text-white  lg:py-8 ">
-          <div className="flex  w-full items-center justify-between px-[10rem] text-sm max-lg:absolute max-lg:justify-start">
+        <div className="flex items-center  bg-[#0d0d0d] text-white  lg:py-4">
+          <div className="flex  w-full items-center justify-between px-[10rem] text-sm max-2xl:px-[5rem] max-lg:absolute max-lg:justify-start">
             <div className="flex items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

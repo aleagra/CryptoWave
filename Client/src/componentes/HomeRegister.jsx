@@ -14,15 +14,15 @@ function HomeRegister() {
           />
         </div>
         <div className="flex flex-col justify-center gap-y-10  max-xl:m-auto lg:w-[50%]">
-          <p className="text-[5rem] font-bold leading-[5rem] text-[#fcfdfe]">
+          <p className="text-[5rem] font-bold leading-[5rem] text-[#fcfdfe] max-2xl:text-[3.5rem] max-2xl:leading-[4rem]">
             Invest in the world's most popular assets
           </p>
-          <p className="text-[1.5rem] font-bold text-white/50">
+          <p className="text-[1.5rem] font-bold text-white/50 max-2xl:text-[1.2rem]">
             From established industries to booming new age up-and-comers — pick
             from over a dozen of different routes to a smart investment.
           </p>
-          <a href="/Login" className=" max-xl:m-auto md:w-[60%]">
-            <button className=" w-full rounded-lg bg-[#4444a0] py-4 px-2 text-xl text-white">
+          <a href="/Login" className="w-[20rem] max-2xl:w-[15rem]">
+            <button className="w-full rounded-lg bg-[#45419d] py-4 px-2 text-xl text-white">
               Start earning
             </button>
           </a>
