@@ -64,7 +64,7 @@ function CoinList() {
 
                   <div className="flex items-center justify-center">
                     <Link to="/Exchange">
-                      <button className="w-[100%] rounded-md bg-[#46429d] p-2 uppercase max-2xl:text-sm max-md:w-[4rem]">
+                      <button className="w-[8rem] rounded-md bg-[#46429d] p-2 uppercase max-2xl:text-sm max-md:w-[4rem]">
                         Buy
                       </button>
                     </Link>

@@ -101,7 +101,7 @@ function Navbar() {
               <NavLink
                 to="/Exchange"
                 onClick={() => setOpen(!open)}
-                className="my-12 text-3xl hover:text-[#47449f] lg:my-0  lg:text-[16px]"
+                className="my-12 text-3xl hover:text-[#47449f] md:ml-12 lg:my-0  lg:text-[16px]"
               >
                 Exchange
               </NavLink>
