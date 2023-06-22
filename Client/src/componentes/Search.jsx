@@ -8,20 +8,7 @@ import Wrapper from "../wrapper/Wrapper";
 function Search() {
   const { coins } = useContext(CoinContext);
   let { buscar } = useParams();
-  function formatNumber(number) {
-    const symbols = ["", "k", "M", "B", "T"];
 
-    const tier = (Math.log10(Math.abs(number)) / 3) | 0;
-
-    if (tier === 0) return number;
-
-    const suffix = symbols[tier];
-    const scale = Math.pow(10, tier * 3);
-
-    const scaledNumber = number / scale;
-
-    return `${scaledNumber.toFixed(1)}${suffix}`;
-  }
   return (
     <>
       <Navbar />
@@ -78,7 +65,7 @@ function Search() {
                   </div>
 
                   <div className="text-center text-lg max-lg:hidden">
-                    {formatNumber(Element.DISPLAY?.USD.VOLUME24HOURTO)}
+                    {Element.DISPLAY?.USD.VOLUME24HOURTO}
                   </div>
 
                   <div className="flex items-center justify-center  max-lg:hidden">
