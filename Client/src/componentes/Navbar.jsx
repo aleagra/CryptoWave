@@ -100,6 +100,7 @@ function Navbar() {
             >
               <NavLink
                 to="/Exchange"
+                activeclassname="active"
                 onClick={() => setOpen(!open)}
                 className="my-12 text-3xl hover:text-[#47449f] md:ml-12 lg:my-0  lg:text-[16px]"
               >
@@ -107,15 +108,17 @@ function Navbar() {
               </NavLink>
               <NavLink
                 to="/Market"
+                activeclassname="active"
                 onClick={() => setOpen(!open)}
                 className="my-12 text-3xl hover:text-[#47449f] lg:my-0  lg:text-[16px]"
               >
                 Market
               </NavLink>
               <NavLink
+                activeclassname="active"
                 to="/Login"
                 onClick={() => setOpen(!open)}
-                className="lg<tab><tab> :my-0 my-12 text-3xl             hover:text-[#47449f]  lg:hidden lg:text-[16px]"
+                className="lg<tab><tab> :my-0 my-12 text-3xl hover:text-[#47449f]  lg:hidden lg:text-[16px]"
               >
                 Profile
               </NavLink>

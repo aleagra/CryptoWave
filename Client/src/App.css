@@ -71,3 +71,6 @@
 .swa12-container {
   width: 200px !important;
 }
+.active {
+  @apply text-[#47449f];
+}
