@@ -14,14 +14,6 @@
     @apply h-screen bg-[#0d0d0d];
   }
 }
-@layer components {
-  input {
-    background-color: #22232c;
-  }
-  td {
-    padding: 12px;
-  }
-}
 
 .css-13cymwt-control {
   background-color: #1b1f24 !important;

@@ -90,8 +90,67 @@ function Exchange() {
     <>
       <div className="grid grid-cols-[300px,1fr,300px] grid-rows-[100px,1fr] gap-12 ">
         <Navbar />
-        <div className="col-start-1 row-start-2 h-[700px] w-full rounded-lg bg-[#121418] py-20 max-2xl:h-[450px] max-2xl:py-6"></div>
-        <div className="col-start-2 row-start-2 h-fit w-full rounded-lg bg-[#121418] pt-6 max-2xl:h-[450px] max-2xl:py-6">
+        <div className="col-start-1 row-start-2 h-fit w-full rounded-lg bg-[#121418] py-6 max-2xl:h-[450px] max-2xl:py-6">
+          <div className="flex h-full w-full flex-col justify-center px-5 text-center text-white">
+            <div className="rounded-lg bg-[#0d0d0d] p-8">
+              <p className="text-xl  text-white">Current value</p>
+              <h1 className="my-2 whitespace-nowrap text-4xl font-bold text-white">
+                $ 30,000,20
+              </h1>
+              <h1 className="mx-auto w-fit whitespace-nowrap rounded-full bg-[#47449f] p-1 text-sm font-bold">
+                +3,23% | + $234
+              </h1>
+            </div>
+            <div className="flex flex-col gap-y-5">
+              <div className="mt-5 flex justify-between">
+                <p className="pl-2 text-left text-lg">Assets</p>
+                <p className="pr-2 text-right text-lg">See more</p>
+              </div>
+
+              <div className="flex items-center justify-between rounded-lg bg-[#0d0d0d] p-3">
+                <div className="flex flex-col text-left">
+                  <p className="text-lg">Bitcoin</p>
+                  <p className="text-sm text-white/50">BTC</p>
+                </div>
+                <div className="flex flex-col text-right">
+                  <p className="text-lg font-semibold">$10.052</p>
+                  <p className="text-sm text-white/50">+4.5%</p>
+                </div>
+              </div>
+              <div className="flex items-center justify-between rounded-lg bg-[#0d0d0d] p-3">
+                <div className="flex flex-col text-left">
+                  <p className="text-lg">Bitcoin</p>
+                  <p className="text-sm text-white/50">BTC</p>
+                </div>
+                <div className="flex flex-col text-right">
+                  <p className="text-lg font-semibold">$10.052</p>
+                  <p className="text-sm text-white/50">+4.5%</p>
+                </div>
+              </div>
+              <div className="flex items-center justify-between rounded-lg bg-[#0d0d0d] p-3">
+                <div className="flex flex-col text-left">
+                  <p className="text-lg">Bitcoin</p>
+                  <p className="text-sm text-white/50">BTC</p>
+                </div>
+                <div className="flex flex-col text-right">
+                  <p className="text-lg font-semibold">$10.052</p>
+                  <p className="text-sm text-white/50">+4.5%</p>
+                </div>
+              </div>
+              <div className="flex items-center justify-between rounded-lg bg-[#0d0d0d] p-3">
+                <div className="flex flex-col text-left">
+                  <p className="text-lg">Bitcoin</p>
+                  <p className="text-sm text-white/50">BTC</p>
+                </div>
+                <div className="flex flex-col text-right">
+                  <p className="text-lg font-semibold">$10.052</p>
+                  <p className="text-sm text-white/50">+4.5%</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="col-start-2 row-start-2 h-fit w-full rounded-lg bg-[#121418] py-6 max-2xl:h-[450px] max-2xl:py-6">
           <div className="m-auto w-[100%] text-left text-sm text-white">
             <div className="grid grid-cols-5 pl-6 text-lg font-semibold text-[#7D7D7D]">
               <div className="text-center max-sm:hidden">Type</div>
