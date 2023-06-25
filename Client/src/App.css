@@ -16,39 +16,41 @@
 }
 
 .css-13cymwt-control {
-  background-color: #1b1f24 !important;
+  background-color: transparent !important;
   outline: none !important;
   border: 0 !important;
 }
 .css-13cymwt-control:active {
-  background-color: #1b1f24 !important;
+  background-color: transparent !important;
   border: 0 !important;
+  outline: none !important;
 }
 .css-13cymwt-control:focus {
-  background-color: #1b1f24 !important;
+  background-color: transparent !important;
   border: 0 !important;
 }
 #react-select-3-listbox {
-  background-color: #1b1f24 !important;
+  background-color: #0d0d0d !important;
 }
 #react-select-3-listbox:hover {
   opacity: 50 !important;
 }
 .css-b62m3t-container:active {
-  background-color: #1b1f24 !important;
+  background-color: #0d0d0d !important;
   border: 0 !important;
+  outline: none !important;
 }
 #selectCoin:active {
-  background-color: #1b1f24 !important;
+  background-color: #0d0d0d !important;
 }
 .css-t3ipsp-control {
-  background-color: #1b1f24 !important;
+  background-color: #0d0d0d !important;
 }
 .css-t3ipsp-control:active {
   border: 0 !important;
 }
 .css-d7l1ni-option {
-  background-color: #31c880 !important;
+  background-color: #49429c !important;
   color: black !important;
 }
 .css-feonkk-Input2 {

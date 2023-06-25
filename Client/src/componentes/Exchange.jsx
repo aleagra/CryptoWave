@@ -90,7 +90,7 @@ function Exchange() {
     <>
       <div className="grid grid-cols-[300px,1fr,300px] grid-rows-[100px,1fr] gap-12 ">
         <Navbar />
-        <div className="col-start-1 row-start-2 h-fit w-full rounded-lg bg-[#121418] py-6 max-2xl:h-[450px] max-2xl:py-6">
+        <div className="col-start-1 row-start-2 h-fit w-full rounded-lg border border-white/20 py-6 max-2xl:h-[450px] max-2xl:py-6">
           <div className="flex h-full w-full flex-col justify-center px-5 text-center text-white">
             <div className="rounded-lg bg-[#0d0d0d] p-8">
               <p className="text-xl  text-white">Current value</p>
@@ -104,10 +104,10 @@ function Exchange() {
             <div className="flex flex-col gap-y-5">
               <div className="mt-5 flex justify-between">
                 <p className="pl-2 text-left text-lg">Assets</p>
-                <p className="pr-2 text-right text-lg">See more</p>
+                <p className="pr-2 text-right text-lg">See all</p>
               </div>
 
-              <div className="flex items-center justify-between rounded-lg bg-[#0d0d0d] p-3">
+              <div className="flex items-center justify-between rounded-lg border border-white/20 p-3">
                 <div className="flex flex-col text-left">
                   <p className="text-lg">Bitcoin</p>
                   <p className="text-sm text-white/50">BTC</p>
@@ -117,7 +117,7 @@ function Exchange() {
                   <p className="text-sm text-white/50">+4.5%</p>
                 </div>
               </div>
-              <div className="flex items-center justify-between rounded-lg bg-[#0d0d0d] p-3">
+              <div className="flex items-center justify-between rounded-lg border border-white/20 p-3">
                 <div className="flex flex-col text-left">
                   <p className="text-lg">Bitcoin</p>
                   <p className="text-sm text-white/50">BTC</p>
@@ -127,7 +127,7 @@ function Exchange() {
                   <p className="text-sm text-white/50">+4.5%</p>
                 </div>
               </div>
-              <div className="flex items-center justify-between rounded-lg bg-[#0d0d0d] p-3">
+              <div className="flex items-center justify-between rounded-lg border border-white/20 p-3">
                 <div className="flex flex-col text-left">
                   <p className="text-lg">Bitcoin</p>
                   <p className="text-sm text-white/50">BTC</p>
@@ -137,7 +137,7 @@ function Exchange() {
                   <p className="text-sm text-white/50">+4.5%</p>
                 </div>
               </div>
-              <div className="flex items-center justify-between rounded-lg bg-[#0d0d0d] p-3">
+              <div className="flex items-center justify-between rounded-lg border border-white/20 p-3">
                 <div className="flex flex-col text-left">
                   <p className="text-lg">Bitcoin</p>
                   <p className="text-sm text-white/50">BTC</p>
@@ -150,7 +150,7 @@ function Exchange() {
             </div>
           </div>
         </div>
-        <div className="col-start-2 row-start-2 h-fit w-full rounded-lg bg-[#121418] py-6 max-2xl:h-[450px] max-2xl:py-6">
+        <div className="col-start-2 row-start-2 h-fit w-full rounded-lg border border-white/20 py-6 max-2xl:h-[450px] max-2xl:py-6">
           <div className="m-auto w-[100%] text-left text-sm text-white">
             <div className="grid grid-cols-5 pl-6 text-lg font-semibold text-[#7D7D7D]">
               <div className="text-center max-sm:hidden">Type</div>
@@ -220,7 +220,7 @@ function Exchange() {
             </div>
           </div>
         </div>
-        <section className="col-start-3 row-start-2 flex h-fit justify-center  rounded-lg bg-[#121418] text-white max-2xl:h-[450px] max-2xl:py-6">
+        <section className="col-start-3 row-start-2 flex h-fit justify-center  rounded-lg border border-white/20 text-white max-2xl:h-[450px] max-2xl:py-6">
           <div className="flex w-full flex-col gap-y-6 p-10">
             <h1 className="text-center text-xl">Traiding spot</h1>
             <div className="relative">
@@ -240,7 +240,7 @@ function Exchange() {
 
             <div className="relative">
               <input
-                className="w-full rounded-md bg-[#1b1f24] py-3 pr-16 outline-none"
+                className="w-full rounded-md border border-white/20 bg-transparent py-3 pr-16 outline-none"
                 type="text"
                 dir="rtl"
                 maxLength="7"
@@ -255,7 +255,7 @@ function Exchange() {
             <div className="relative">
               <p
                 dir="rtl"
-                className={` rounded-md border-opacity-50 bg-[#1b1f24] py-3 pr-16 text-sm ${
+                className={` rounded-md border border-white/20 border-opacity-50 py-3 pr-16 text-sm ${
                   myData?.balance < amount
                     ? "text-[#D9475A] "
                     : "text-[#00A68C]"
