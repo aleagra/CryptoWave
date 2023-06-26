@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { NavLink } from "react-router-dom";
 import { CoinContext } from "../context/CoinContext";
 import Wrapper from "../wrapper/Wrapper";
 function CoinList() {
@@ -40,12 +40,12 @@ function CoinList() {
                       }
                       alt={Element.CoinInfo.FullName}
                     />
-                    <p className="text-xl max-2xl:text-lg max-md:text-sm">
+                    <span className="text-xl max-2xl:text-lg max-md:text-sm">
                       {Element.CoinInfo.FullName}
-                    </p>
-                    <p className="text-lg uppercase text-[#7D7D7D] max-2xl:text-base max-md:hidden ">
+                    </span>
+                    <span className="text-lg uppercase text-[#7D7D7D] max-2xl:text-base max-md:hidden ">
                       {Element.CoinInfo.Internal}
-                    </p>
+                    </span>
                   </div>
 
                   <div className="text-center text-xl font-bold max-2xl:text-lg max-md:text-sm">
@@ -53,21 +53,21 @@ function CoinList() {
                   </div>
 
                   <div className="text-center ">
-                    <p
+                    <span
                       className={`text-center text-lg font-bold max-2xl:text-base max-md:text-sm ${
                         numericValue > 0 ? "text-[#00A68C]" : "text-[#D9475A]"
                       }`}
                     >
                       {Element.DISPLAY.USD.CHANGE24HOUR}
-                    </p>
+                    </span>
                   </div>
 
                   <div className="flex items-center justify-center">
-                    <Link to="/Exchange">
+                    <NavLink to="/Exchange">
                       <button className="w-[8rem] rounded-md bg-[#46429d] p-2 uppercase max-2xl:text-sm max-md:w-[4rem]">
                         Buy
                       </button>
-                    </Link>
+                    </NavLink>
                   </div>
                 </div>
               );

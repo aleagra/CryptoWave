@@ -1,14 +1,31 @@
-import React from "react";
-import Lottie from "lottie-react";
-import wallet from "../assets/wallet.json";
+import { useEffect, useRef } from "react";
+import lottie from "lottie-web";
+import animationData from "../assets/wallet.json";
 import Wrapper from "../wrapper/Wrapper";
 function Home() {
+  const animationContainer = useRef(null);
+
+  useEffect(() => {
+    const animation = lottie.loadAnimation({
+      container: animationContainer.current,
+      animationData,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+    });
+
+    return () => {
+      animation.destroy();
+    };
+  }, []);
+
   return (
     <section className="flex min-h-screen flex-col justify-center">
       <div className="mx-auto flex w-full flex-row-reverse justify-center max-lg:flex-col max-md:row-auto max-md:m-0">
-        <div className="mx-auto my-10 max-2xl:w-[80%] max-md:w-full max-md:pr-6">
-          <Lottie animationData={wallet} className="w-[100%]" />
-        </div>
+        <div
+          className="mx-auto my-10 max-2xl:w-[80%] max-md:w-full max-md:pr-6"
+          ref={animationContainer}
+        ></div>
         <div className="flex w-[50%] flex-col justify-center gap-y-10 max-2xl:gap-3 max-lg:w-full max-lg:items-center max-lg:justify-center">
           <div className="flex flex-col text-[4rem] font-bold leading-[5rem] text-[#fcfdfe] max-2xl:text-[3.5rem] max-2xl:leading-[4rem] max-lg:text-center max-md:px-4 max-md:text-2xl max-md:text-[2.5rem] max-md:leading-[3rem]">
             <p>

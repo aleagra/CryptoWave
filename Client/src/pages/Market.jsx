@@ -1,12 +1,10 @@
-import React, { useContext } from "react";
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { NavLink } from "react-router-dom";
 import { CoinContext } from "../context/CoinContext";
-import Navbar from "../componentes/Navbar";
 import Wrapper from "../wrapper/Wrapper";
+import { Navbar } from "../componentes";
 function Market() {
   const { coins } = useContext(CoinContext);
-  let { buscar } = useParams();
   return (
     <>
       <Navbar />
@@ -39,16 +37,14 @@ function Market() {
                       }
                       alt={Element.CoinInfo.FullName}
                     />
-                    <p className="text-xl">
-                      {
-                        <p className="text-xl max-lg:text-sm">
-                          {Element.CoinInfo.FullName}
-                        </p>
-                      }
-                    </p>
-                    <p className="text-lg uppercase text-[#7D7D7D] max-lg:hidden ">
+
+                    <span className="text-xl max-lg:text-sm">
+                      {Element.CoinInfo.FullName}
+                    </span>
+
+                    <span className="text-lg uppercase text-[#7D7D7D] max-lg:hidden ">
                       {Element.CoinInfo.Internal}
-                    </p>
+                    </span>
                   </div>
 
                   <div className="text-center text-xl font-bold max-lg:text-sm">
@@ -56,13 +52,13 @@ function Market() {
                   </div>
 
                   <div className="text-center ">
-                    <p
+                    <span
                       className={`text-center text-lg font-bold max-sm:text-xs ${
                         numericValue > 0 ? "text-[#00A68C]" : "text-[#D9475A]"
                       }`}
                     >
                       {Element.DISPLAY?.USD.CHANGE24HOUR}
-                    </p>
+                    </span>
                   </div>
 
                   <div className="text-center text-lg max-lg:hidden max-lg:text-sm">
@@ -70,11 +66,11 @@ function Market() {
                   </div>
 
                   <div className="flex items-center justify-center">
-                    <Link to="/Exchange">
+                    <NavLink to="/Exchange">
                       <button className="w-[8rem] rounded-md bg-[#46429d] p-2 uppercase max-2xl:text-sm max-lg:w-[4rem]">
                         Buy
                       </button>
-                    </Link>
+                    </NavLink>
                   </div>
                 </div>
               );
