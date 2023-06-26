@@ -29,17 +29,17 @@ function Navbar() {
 
   return (
     <div className="fixed top-0 left-0 z-10 w-full">
-      <div className="flex w-full items-center justify-between bg-[#0d0d0d] py-6 px-[10rem] text-sm max-2xl:px-[5rem] max-lg:absolute max-md:justify-center max-md:px-0">
+      <div className="flex w-full items-center justify-between bg-background py-6 px-[10rem] text-sm max-2xl:px-[5rem] max-lg:absolute max-md:justify-center max-md:px-0">
         <div className="flex items-center">
           <BarsIcon toggleOpen={toggleOpen} open={open} />
           <NavLink
             to="/"
-            className="w-40 text-center text-lg hover:text-[#47449f] max-md:w-36"
+            className="w-40 text-center text-lg hover:text-main max-md:w-36"
           >
             <img src={logo} alt="" />
           </NavLink>
           <ul
-            className={`absolute left-0 flex h-screen w-full justify-center overflow-hidden bg-[#0d0d0d] pb-12 text-center font-semibold text-white transition-all duration-200 max-lg:flex-col max-md:px-10 lg:static lg:right-0 lg:z-auto lg:flex lg:h-auto lg:w-auto lg:items-center lg:pl-0 lg:pb-0 ${
+            className={`absolute left-0 flex h-screen w-full justify-center overflow-hidden bg-background pb-12 text-center font-semibold text-white transition-all duration-200 max-lg:flex-col max-md:px-10 lg:static lg:right-0 lg:z-auto lg:flex lg:h-auto lg:w-auto lg:items-center lg:pl-0 lg:pb-0 ${
               open ? "top-16 " : "top-[-6000px] "
             }`}
           >
@@ -49,7 +49,7 @@ function Navbar() {
                 to={link.ref}
                 activeclassname="active"
                 onClick={toggleOpen}
-                className={`my-12 text-3xl hover:text-[#47449f] md:ml-12 lg:my-0 lg:text-[16px] ${link.hidden} `}
+                className={`my-12 text-3xl hover:text-main md:ml-12 lg:my-0 lg:text-[16px] ${link.hidden} `}
               >
                 {link.title}
               </NavLink>
@@ -68,7 +68,7 @@ function Navbar() {
               type="Search"
               placeholder="Search"
               maxLength="20"
-              className="rounded-xl bg-[#23232c] p-2 px-4 text-white outline-none max-lg:w-full"
+              className="rounded-xl bg-input p-2 px-4 text-white outline-none max-lg:w-full"
             />
             <a
               className="absolute top-8 right-14 lg:hidden"
@@ -87,7 +87,7 @@ function Navbar() {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="white"
-              className="h-6 w-6 bg-transparent text-icons"
+              className="text-icons h-6 w-6 bg-transparent"
             >
               <path
                 strokeLinejoin="round"
@@ -102,7 +102,7 @@ function Navbar() {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="white"
-            className="h-6 w-6 bg-transparent text-icons lg:hidden"
+            className="text-icons h-6 w-6 bg-transparent lg:hidden"
             onClick={toggleSearch}
           >
             <path

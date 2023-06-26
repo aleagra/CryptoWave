@@ -11,9 +11,9 @@
 }
 @layer base {
   body {
-    @apply h-screen bg-[#0d0d0d];
+    @apply h-screen bg-background;
   }
 }
 .active {
-  @apply text-[#47449f];
+  @apply text-main;
 }

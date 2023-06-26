@@ -47,7 +47,7 @@ export function Login() {
 
           <div className="flex flex-col justify-center text-center ">
             <button
-              className="m-auto my-10 h-10 w-[19.5rem] rounded-lg bg-[#4444a0] px-10 text-lg"
+              className="m-auto my-10 h-10 w-[19.5rem] rounded-lg bg-main px-10 text-lg"
               type="submit"
             >
               Log in

@@ -8,9 +8,9 @@ function Market() {
   return (
     <>
       <Navbar />
-      <div className="m-auto flex w-full items-center bg-[#0d0d0d] max-lg:pt-[5rem] lg:pt-[8rem] ">
+      <div className="m-auto flex w-full items-center bg-background max-lg:pt-[5rem] lg:pt-[8rem] ">
         <div className="m-auto w-[100%] text-left text-sm text-white">
-          <div className="grid grid-cols-5 pl-6 text-lg font-semibold text-[#7D7D7D] max-lg:grid-cols-4 max-lg:text-sm">
+          <div className="grid grid-cols-5 pl-6 text-lg font-semibold text-secondary max-lg:grid-cols-4 max-lg:text-sm">
             <div className="">Coin</div>
             <div className="text-center">Last price</div>
             <div className="text-center ">24h change</div>
@@ -25,7 +25,7 @@ function Market() {
               );
               return (
                 <div
-                  className="grid grid-cols-5 place-items-center rounded-md py-5 pl-6 hover:bg-white/10 max-lg:grid-cols-4 max-lg:rounded-none max-lg:py-4 max-lg:pl-4"
+                  className="grid grid-cols-5 place-items-center rounded-md py-5 pl-6 hover:bg-white/20 max-lg:grid-cols-4 max-lg:rounded-none max-lg:py-4 max-lg:pl-4"
                   key={Element.CoinInfo.Id}
                 >
                   <div className="flex w-full items-center gap-2 max-lg:gap-1">
@@ -42,7 +42,7 @@ function Market() {
                       {Element.CoinInfo.FullName}
                     </span>
 
-                    <span className="text-lg uppercase text-[#7D7D7D] max-lg:hidden ">
+                    <span className="text-lg uppercase text-secondary max-lg:hidden ">
                       {Element.CoinInfo.Internal}
                     </span>
                   </div>
@@ -67,7 +67,7 @@ function Market() {
 
                   <div className="flex items-center justify-center">
                     <NavLink to="/Exchange">
-                      <button className="w-[8rem] rounded-md bg-[#46429d] p-2 uppercase max-2xl:text-sm max-lg:w-[4rem]">
+                      <button className="w-[8rem] rounded-md bg-main p-2 uppercase max-2xl:text-sm max-lg:w-[4rem]">
                         Buy
                       </button>
                     </NavLink>

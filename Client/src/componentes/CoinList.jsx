@@ -7,14 +7,14 @@ function CoinList() {
   return (
     <div className="m-auto w-full">
       <h1 className="my-4 text-center text-[4rem] font-bold text-white max-2xl:text-[3.5rem] max-md:px-4 max-md:text-[2.5rem] max-md:leading-[3rem]">
-        Buy <span className="text-[#45419d]">crypto</span> at true cost
+        Buy <span className="text-main">crypto</span> at true cost
       </h1>
-      <p className="mb-16 text-center text-[1.5rem] font-bold text-white/50 max-2xl:mb-10 max-2xl:text-[1.2rem] max-md:px-10 max-md:text-center max-md:text-lg">
+      <p className="mb-16 text-center text-[1.5rem] font-bold text-secondary max-2xl:mb-10 max-2xl:text-[1.2rem] max-md:px-10 max-md:text-center max-md:text-lg">
         Whenever we can, we provide real-time data for free.
       </p>
       <div className="m-auto flex items-center max-md:m-0">
         <div className="m-auto w-[100%] text-left text-sm text-white max-md:px-2">
-          <div className="grid grid-cols-4 pl-6 text-lg text-[#7D7D7D] max-2xl:text-base max-md:pl-2">
+          <div className="grid grid-cols-4 pl-6 text-lg text-secondary max-2xl:text-base max-md:pl-2">
             <div className="max-md:pl-4">Coin</div>
             <div className="text-center">Last price</div>
             <div className="text-center ">24h change</div>
@@ -43,7 +43,7 @@ function CoinList() {
                     <span className="text-xl max-2xl:text-lg max-md:text-sm">
                       {Element.CoinInfo.FullName}
                     </span>
-                    <span className="text-lg uppercase text-[#7D7D7D] max-2xl:text-base max-md:hidden ">
+                    <span className="text-lg uppercase text-secondary max-2xl:text-base max-md:hidden ">
                       {Element.CoinInfo.Internal}
                     </span>
                   </div>
@@ -64,7 +64,7 @@ function CoinList() {
 
                   <div className="flex items-center justify-center">
                     <NavLink to="/Exchange">
-                      <button className="w-[8rem] rounded-md bg-[#46429d] p-2 uppercase max-2xl:text-sm max-md:w-[4rem]">
+                      <button className="w-[8rem] rounded-md bg-main p-2 uppercase max-2xl:text-sm max-md:w-[4rem]">
                         Buy
                       </button>
                     </NavLink>

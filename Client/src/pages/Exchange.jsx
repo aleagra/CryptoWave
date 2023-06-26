@@ -34,12 +34,12 @@ function Exchange() {
         <Navbar />
         <div className="col-start-1 row-start-2 h-fit w-full rounded-lg border border-white/20 py-6 max-2xl:h-[450px] max-2xl:py-6">
           <div className="flex h-full w-full flex-col justify-center px-5 text-center text-white">
-            <div className="rounded-lg bg-[#0d0d0d] p-8">
+            <div className="rounded-lg bg-background p-8">
               <p className="text-xl  text-white">Current value</p>
               <h1 className="my-2 whitespace-nowrap text-4xl font-bold text-white">
                 $ 30,000,20
               </h1>
-              <h1 className="mx-auto w-fit whitespace-nowrap rounded-full bg-[#47449f] p-1 text-sm font-bold">
+              <h1 className="mx-auto w-fit whitespace-nowrap rounded-full bg-main p-1 text-sm font-bold">
                 +3,23% | + $234
               </h1>
             </div>
@@ -52,41 +52,41 @@ function Exchange() {
               <div className="flex items-center justify-between rounded-lg border border-white/20 p-3">
                 <div className="flex flex-col text-left">
                   <p className="text-lg">Bitcoin</p>
-                  <p className="text-sm text-white/50">BTC</p>
+                  <p className="text-sm text-secondary">BTC</p>
                 </div>
                 <div className="flex flex-col text-right">
                   <p className="text-lg font-semibold">$10.052</p>
-                  <p className="text-sm text-white/50">+4.5%</p>
+                  <p className="text-sm text-secondary">+4.5%</p>
                 </div>
               </div>
               <div className="flex items-center justify-between rounded-lg border border-white/20 p-3">
                 <div className="flex flex-col text-left">
                   <p className="text-lg">Bitcoin</p>
-                  <p className="text-sm text-white/50">BTC</p>
+                  <p className="text-sm text-secondary">BTC</p>
                 </div>
                 <div className="flex flex-col text-right">
                   <p className="text-lg font-semibold">$10.052</p>
-                  <p className="text-sm text-white/50">+4.5%</p>
+                  <p className="text-sm text-secondary">+4.5%</p>
                 </div>
               </div>
               <div className="flex items-center justify-between rounded-lg border border-white/20 p-3">
                 <div className="flex flex-col text-left">
                   <p className="text-lg">Bitcoin</p>
-                  <p className="text-sm text-white/50">BTC</p>
+                  <p className="text-sm text-secondary">BTC</p>
                 </div>
                 <div className="flex flex-col text-right">
                   <p className="text-lg font-semibold">$10.052</p>
-                  <p className="text-sm text-white/50">+4.5%</p>
+                  <p className="text-sm text-secondary">+4.5%</p>
                 </div>
               </div>
               <div className="flex items-center justify-between rounded-lg border border-white/20 p-3">
                 <div className="flex flex-col text-left">
                   <p className="text-lg">Bitcoin</p>
-                  <p className="text-sm text-white/50">BTC</p>
+                  <p className="text-sm text-secondary">BTC</p>
                 </div>
                 <div className="flex flex-col text-right">
                   <p className="text-lg font-semibold">$10.052</p>
-                  <p className="text-sm text-white/50">+4.5%</p>
+                  <p className="text-sm text-secondary">+4.5%</p>
                 </div>
               </div>
             </div>
@@ -94,7 +94,7 @@ function Exchange() {
         </div>
         <div className="col-start-2 row-start-2 h-fit w-full rounded-lg border border-white/20 py-6 max-2xl:h-[450px] max-2xl:py-6">
           <div className="m-auto w-[100%] text-left text-sm text-white">
-            <div className="grid grid-cols-5 pl-6 text-lg font-semibold text-[#7D7D7D]">
+            <div className="grid grid-cols-5 pl-6 text-lg font-semibold text-secondary">
               <div className="text-center max-sm:hidden">Type</div>
               <div className="text-center max-md:pl-4">Coin</div>
               <div className="text-center">Amount</div>
@@ -204,7 +204,7 @@ function Exchange() {
 
             <div className=" flex justify-center">
               <button
-                className="w-full rounded-md bg-[#46429d] py-3 font-bold uppercase"
+                className="w-full rounded-md bg-main py-3 font-bold uppercase"
                 onClick={() => {
                   alerta();
                 }}
