@@ -1,6 +1,7 @@
 export { default as AccentIcon } from './AccentIcon';
 export { default as ArrowIcon } from './ArrowIcon';
 export { default as BarsIcon } from './BarsIcon';
+export { default as CloseIcon } from './CloseIcon';
 export { default as MailIcon } from './MailIcon';
 export { default as Padlock } from './Padlock';
 export { default as ProfileIcon } from './ProfileIcon';
