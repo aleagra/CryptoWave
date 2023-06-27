@@ -1,5 +1,5 @@
-import { useContext, useParams } from "react";
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { NavLink, useParams } from "react-router-dom";
 import { CoinContext } from "../context/CoinContext";
 import Navbar from "../componentes/Navbar";
 import Wrapper from "../wrapper/Wrapper";
@@ -11,7 +11,7 @@ function Search() {
   return (
     <>
       <Navbar />
-      <div className="m-auto flex w-full items-center bg-background max-lg:pt-[5rem] lg:pt-[8rem] ">
+      <div className="flex w-full items-center bg-background pt-[8rem]">
         <div className="m-auto w-[100%] text-left text-sm text-white">
           <div className="grid grid-cols-5 pl-6 text-lg font-semibold text-secondary max-lg:grid-cols-4 max-lg:text-sm">
             <div className="">Coin</div>
