@@ -1,12 +1,18 @@
-import { useState } from "react";
+import { useState, useParams } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../public/cryptoLogo.webp";
-import { BarsIcon, ProfileIcon, SearchIcon } from "../utilities/icons";
+import {
+  BarsIcon,
+  CloseIcon,
+  ProfileIcon,
+  SearchIcon,
+} from "../utilities/icons";
 
 function Navbar() {
   const [search, setSearch] = useState(false);
   const [buscar, setBuscar] = useState("");
   let [open, setOpen] = useState(false);
+
   const links = [
     {
       title: "Exchange",
@@ -57,28 +63,15 @@ function Navbar() {
           </ul>
         </div>
         <div className="right-0 flex items-center justify-end gap-8 max-md:absolute max-md:mr-6 max-md:w-fit max-md:gap-0">
-          <ul
-            className={`z-[-1] flex w-full items-center overflow-hidden text-center text-white transition-all duration-100 max-lg:absolute lg:static lg:z-auto lg:flex lg:w-auto ${
-              search ? "top-12 left-0" : "top-[-7000px]"
-            }`}
-          >
-            <input
-              onChange={(e) => setBuscar(e.target.value)}
-              value={buscar}
-              type="Search"
-              placeholder="Search"
-              maxLength="20"
-              className="rounded-xl bg-input p-2 px-4 text-white outline-none max-lg:w-full"
-            />
-            <a
-              className="absolute top-8 right-14 lg:hidden"
-              href={buscar === "" ? "/Market" : "/Search/" + buscar}
-            >
-              <SearchIcon />
-            </a>
-          </ul>
+          <input
+            onChange={(e) => setBuscar(e.target.value)}
+            value={buscar}
+            placeholder="Search"
+            maxLength="20"
+            className="rounded-xl bg-input p-2 px-4 text-white outline-none max-lg:w-full max-md:hidden"
+          />
           <a
-            className="max-lg:hidden"
+            className=""
             href={buscar === "" ? "/Market" : "/Search/" + buscar}
           >
             <svg
@@ -87,7 +80,7 @@ function Navbar() {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="white"
-              className="text-icons h-6 w-6 bg-transparent"
+              className="h-6 w-6 bg-transparent max-md:hidden"
             >
               <path
                 strokeLinejoin="round"
@@ -102,7 +95,7 @@ function Navbar() {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="white"
-            className="text-icons h-6 w-6 bg-transparent lg:hidden"
+            className="h-6 w-6 bg-transparent md:hidden"
             onClick={toggleSearch}
           >
             <path
@@ -120,6 +113,22 @@ function Navbar() {
           </NavLink>
         </div>
       </div>
+      <ul className={` ${search ? "top-12 left-0" : "top-[-7000px] hidden"}`}>
+        <input
+          onChange={(e) => setBuscar(e.target.value)}
+          value={buscar}
+          placeholder="Search"
+          maxLength="20"
+          className="my-1 border border-input bg-background p-4 px-4 text-white outline-none max-lg:w-full max-md:absolute lg:hidden"
+        />
+        <div className="z-20">
+          <CloseIcon toggleSearch={toggleSearch} />
+        </div>
+        <a
+          className=" top-8 right-14  "
+          href={buscar === "" ? "/Market" : "/Search/" + buscar}
+        ></a>
+      </ul>
     </div>
   );
 }

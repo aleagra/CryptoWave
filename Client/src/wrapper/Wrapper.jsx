@@ -4,7 +4,7 @@ const Wrapper = (Component, style) =>
     return (
       <>
         <section
-          className={`max-md :min-h-screen flex max-h-screen   flex-col px-[10rem]  max-2xl:px-[5rem] max-md:px-0 ${style} `}
+          className={`flex min-h-screen flex-col px-[10rem] max-2xl:px-[5rem] max-md:px-0 ${style} `}
         >
           <Component />
         </section>
