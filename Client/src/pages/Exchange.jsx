@@ -34,8 +34,8 @@ function Exchange() {
         <Navbar />
         <div className="col-start-1 row-start-2 h-fit w-full rounded-lg border border-white/20 py-6 max-2xl:h-[450px] max-2xl:py-6">
           <div className="flex h-full w-full flex-col justify-center px-5 text-center text-white">
-            <div className="rounded-lg bg-background p-8">
-              <p className="text-xl  text-white">Current value</p>
+            <div className="rounded-lg bg-background px-8 pb-8">
+              <p className="text-xl  text-secondary">Current value</p>
               <h1 className="my-2 whitespace-nowrap text-4xl font-bold text-white">
                 $ 30,000,20
               </h1>
@@ -46,7 +46,12 @@ function Exchange() {
             <div className="flex flex-col gap-y-5">
               <div className="mt-5 flex justify-between">
                 <p className="pl-2 text-left text-lg">Assets</p>
-                <p className="pr-2 text-right text-lg">See all</p>
+                <a
+                  href="/Login"
+                  className="cursor-pointer pr-2 text-right text-lg text-main"
+                >
+                  See all
+                </a>
               </div>
 
               <div className="flex items-center justify-between rounded-lg border border-white/20 p-3">
@@ -163,11 +168,11 @@ function Exchange() {
             </div>
           </div>
         </div>
-        <section className="col-start-3 row-start-2 flex h-fit justify-center  rounded-lg border border-white/20 text-white max-2xl:h-[450px] max-2xl:py-6">
-          <div className="flex w-full flex-col gap-y-6 p-10">
+        <section className="col-start-3 row-start-2 flex h-fit justify-center  rounded-lg border border-white/20 text-white max-2xl:py-6">
+          <div className="flex w-full flex-col gap-y-6 p-7">
             <h1 className="text-center text-xl">Traiding spot</h1>
             <div className="relative">
-              <select className="w-full rounded-md border border-white/20 bg-transparent py-3 text-white">
+              <select className="w-full rounded-md border border-white/20 bg-transparent py-3 text-center text-white">
                 <option value="">
                   <span className="text-sm">Seleccione una crypto</span>
                 </option>
@@ -190,13 +195,13 @@ function Exchange() {
                 dir="rtl"
                 maxLength="7"
               />
-              <span className="absolute left-3 top-4 text-xs">AMOUNT</span>
+              <span className="absolute left-3 top-4 text-xs">Amount</span>
               <span className="absolute right-4 top-4 text-xs">USDT</span>
             </div>
 
-            <div className="relative">
+            {/* <div className="relative">
               <span className="absolute left-3 top-4 text-xs">TOTAL</span>
-            </div>
+            </div> */}
 
             <div className="relative">
               <span>{Element.current_price}</span>
