@@ -3,8 +3,68 @@ import { CoinContext } from "../context/CoinContext";
 
 function Transactions() {
   const { coins } = useContext(CoinContext);
+
+  const transactions = [
+    {
+      name: "BTC",
+      img: "https://www.cryptocompare.com/media/37746251/btc.png",
+      amount: "0.31",
+      value: "$9.418,724",
+      status: "Complete",
+      style: "bg-green-400/20 text-green-400",
+    },
+    {
+      name: "ETH",
+      img: "https://www.cryptocompare.com/media/37746238/eth.png",
+      amount: "2.75",
+      value: "$5.118,75",
+      status: "Complete",
+      style: "bg-green-400/20 text-green-400",
+    },
+    {
+      name: "USDT",
+      img: "https://www.cryptocompare.com/media/37746338/usdt.png",
+      amount: "540",
+      value: "$540",
+      status: "In progress",
+      style: "bg-yellow-400/20 text-yellow-400",
+    },
+    {
+      name: "BCH",
+      img: "https://www.cryptocompare.com/media/37746245/bch.png",
+      amount: "0,8674",
+      value: "$200",
+      status: "Failed",
+      style: "bg-red-400/20 text-red-400",
+    },
+    {
+      name: "USDC",
+      img: "https://www.cryptocompare.com/media/34835941/usdc.png",
+      amount: "400",
+      value: "$400",
+      status: "Complete",
+      style: "bg-green-400/20 text-green-400",
+    },
+    {
+      name: "XRP",
+      img: "https://www.cryptocompare.com/media/38553096/xrp.png",
+      amount: "634.5",
+      value: "$300",
+      status: "In progress",
+      style: "bg-yellow-400/20 text-yellow-400",
+    },
+    {
+      name: "TUSD",
+      img: "https://www.cryptocompare.com/media/38554125/tusd.png",
+      amount: "395",
+      value: "$395",
+      status: "Failded",
+      style: "bg-red-400/20 text-red-400",
+    },
+  ];
+
   return (
-    <div className="max-2xl: m-auto w-[100%] text-left text-sm text-white">
+    <div className="max-2xl: m-auto w-[100%] text-left text-sm text-white ">
       <div className="grid grid-cols-5 pl-6 text-lg font-semibold text-secondary max-md:grid-cols-4 max-md:pl-0">
         <div className="text-center">Type</div>
         <div className="text-center max-md:pl-4">Coin</div>
@@ -14,11 +74,11 @@ function Transactions() {
       </div>
 
       <div className="my-5 border-opacity-30 max-md:my-2">
-        {coins?.slice(0, 7).map((Element) => {
+        {transactions.map((element) => {
           return (
             <div
               className="grid grid-cols-5 place-items-center rounded-md py-5 pl-6 hover:bg-white/10 max-md:grid-cols-4 max-md:pl-0"
-              key={Element.CoinInfo.Id}
+              key={element.name}
             >
               <div className=" flex items-center gap-2 text-lg">
                 <svg
@@ -39,29 +99,21 @@ function Transactions() {
                 <span className="text-lg max-md:text-sm">Exchange</span>
               </div>
               <div className="flex w-full items-center justify-center gap-2">
-                <img
-                  className="h-6 w-6"
-                  src={
-                    "https://www.cryptocompare.com" + Element.CoinInfo.ImageUrl
-                  }
-                  alt={Element.CoinInfo.FullName}
-                />
+                <img className="h-6 w-6" src={element.img} alt={element.name} />
 
-                <span className="text-lg max-md:text-sm">
-                  {Element.CoinInfo.Internal}
-                </span>
+                <span className="text-lg max-md:text-sm">{element.name}</span>
               </div>
 
               <div className="text-center text-lg font-bold max-md:text-sm">
-                <p> 0,002342</p>
+                <p> {element.amount}</p>
               </div>
 
               <div className="flex items-center justify-center text-lg max-md:hidden">
-                <p>$423,40</p>
+                <p>{element.value}</p>
               </div>
               <div className="flex items-center justify-center gap-2 max-md:text-xs">
-                <p className="rounded-lg bg-yellow-400/20 p-2 text-yellow-400  ">
-                  In progress
+                <p className={`${element.style} rounded-lg p-2`}>
+                  {element.status}
                 </p>
               </div>
             </div>

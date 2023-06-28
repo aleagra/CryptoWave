@@ -33,6 +33,12 @@ function Navbar() {
     setSearch(!search);
   };
 
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      window.location.href = buscar === "" ? "/Market" : "/Search/" + buscar;
+      toggleSearch();
+    }
+  };
   return (
     <div className="fixed top-0 left-0 z-10 w-full">
       <div className="flex w-full items-center justify-between bg-background py-6 px-[10rem] text-sm max-2xl:px-[5rem] max-lg:absolute max-md:justify-center max-md:px-0">
@@ -69,6 +75,7 @@ function Navbar() {
             placeholder="Search"
             maxLength="20"
             className="rounded-xl bg-input p-2 px-4 text-white outline-none max-lg:w-full max-md:hidden"
+            onKeyPress={handleKeyPress}
           />
           <a
             className=""
@@ -120,6 +127,7 @@ function Navbar() {
           placeholder="Search"
           maxLength="20"
           className="my-1 border border-input bg-background p-4 px-4 text-white outline-none max-lg:w-full max-md:absolute lg:hidden"
+          onKeyPress={handleKeyPress}
         />
         <div className="z-20">
           <CloseIcon toggleSearch={toggleSearch} />

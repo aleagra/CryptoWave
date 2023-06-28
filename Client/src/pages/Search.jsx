@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import { CoinContext } from "../context/CoinContext";
 import Navbar from "../componentes/Navbar";
@@ -7,30 +7,41 @@ import Wrapper from "../wrapper/Wrapper";
 function Search() {
   const { coins } = useContext(CoinContext);
   let { buscar } = useParams();
+  const [mostrarResultados, setMostrarResultados] = useState(true);
+  const monedasFiltradas = coins.filter((Element) => {
+    return Element.CoinInfo.FullName.trim()
+      .toLowerCase()
+      .includes(buscar.toLowerCase());
+  });
 
+  useEffect(() => {
+    if (monedasFiltradas.length === 0) {
+      setMostrarResultados(false);
+    } else {
+      setMostrarResultados(true);
+    }
+  }, [monedasFiltradas]);
   return (
     <>
       <Navbar />
       <div className="flex w-full items-center bg-background pt-[8rem]">
         <div className="m-auto w-[100%] text-left text-sm text-white">
-          <div className="grid grid-cols-5 pl-6 text-lg font-semibold text-secondary max-lg:grid-cols-4 max-lg:text-sm">
-            <div className="">Coin</div>
-            <div className="text-center">Last price</div>
-            <div className="text-center ">24h change</div>
-            <div className="text-center max-lg:hidden ">Volume</div>
-            <div className="text-center">Trade</div>
-          </div>
+          {mostrarResultados && (
+            <div className="grid grid-cols-5 pl-6 text-lg font-semibold text-secondary max-lg:grid-cols-4 max-lg:text-sm">
+              <div className="">Coin</div>
+              <div className="text-center">Last price</div>
+              <div className="text-center ">24h change</div>
+              <div className="text-center max-lg:hidden ">Volume</div>
+              <div className="text-center">Trade</div>
+            </div>
+          )}
 
           <div className="my-5 border-opacity-30">
-            {coins?.map((Element) => {
-              const numericValue = parseFloat(
-                Element.DISPLAY?.USD.CHANGE24HOUR.substring(1)
-              );
-              if (
-                Element.CoinInfo.FullName.trim()
-                  .toLowerCase()
-                  .includes(buscar.toLowerCase())
-              ) {
+            {monedasFiltradas.length > 0 ? (
+              monedasFiltradas.map((Element) => {
+                const numericValue = parseFloat(
+                  Element.DISPLAY?.USD.CHANGE24HOUR.substring(1)
+                );
                 return (
                   <div
                     className="grid grid-cols-5 place-items-center rounded-md py-5 pl-6 hover:bg-white/20 max-lg:grid-cols-4 max-lg:rounded-none max-lg:py-4 max-lg:pl-4"
@@ -82,8 +93,13 @@ function Search() {
                     </div>
                   </div>
                 );
-              }
-            })}
+              })
+            ) : (
+              <div className="flex w-full justify-center text-white">
+                {" "}
+                <span className="text-xl">No se encontraron resultados.</span>
+              </div>
+            )}
           </div>
         </div>
       </div>

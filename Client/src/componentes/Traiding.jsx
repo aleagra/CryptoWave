@@ -48,7 +48,7 @@ function Traiding() {
           className="w-full rounded-md border border-white/20 bg-transparent py-3 pr-16 outline-none"
           type="text"
           dir="rtl"
-          maxLength="7"
+          maxLength="6"
         />
         <span className="absolute left-3 top-4 text-xs">Amount</span>
         <span className="absolute right-4 top-4 text-xs">USDT</span>
@@ -69,7 +69,7 @@ function Traiding() {
         </button>
       </div>
       <p className="text-center">
-        Total balance: <span className="">6000 USD</span>
+        Total balance: <span className="">540 USDT</span>
       </p>
     </div>
   );
