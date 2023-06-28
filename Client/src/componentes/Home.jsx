@@ -35,7 +35,7 @@ function Home() {
           </div>
           <p className="text-[1.5rem] font-bold text-secondary max-2xl:pr-6 max-2xl:text-[1.2rem] max-lg:text-center max-md:px-10 max-md:text-lg">
             buy and sell 100+ cryptocoins using bank transfers or your
-            credit/debit card. Lorem ipsum dolor sit amet consectetur,
+            credit/debit card.
           </p>
           <a
             href="/Login"

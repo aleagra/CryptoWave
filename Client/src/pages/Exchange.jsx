@@ -9,7 +9,7 @@ function Exchange() {
 
   return (
     <>
-      <div className="grid  grid-rows-[100px,1fr] gap-12 max-2xl:mb-20 max-2xl:grid-rows-[75px,1fr,605px] max-2xl:gap-8 max-md:grid-cols-1 max-md:gap-0 max-md:px-0">
+      <div className="grid grid-rows-[100px,1fr] gap-12 max-2xl:mb-20 max-2xl:grid-rows-[75px,1fr,605px] max-2xl:gap-8 max-md:grid-cols-1 max-md:gap-0 max-md:px-0">
         <Navbar />
         <div className="row-start-2 grid grid-cols-[300px,1fr,300px] gap-12 max-2xl:grid-cols-[1fr] max-2xl:gap-4 max-md:flex max-md:flex-col max-md:gap-y-8 max-md:pb-12">
           <div className="max-2xl:pb-10max-md:col-start-1 col-start-1 row-start-2 h-full w-full rounded-lg border border-white/20 py-6  max-md:rounded-none max-md:border-y">

@@ -8,7 +8,7 @@ function Market() {
   return (
     <>
       <Navbar />
-      <div className="m-auto flex w-full items-center bg-background max-lg:pt-[5rem] lg:pt-[8rem] ">
+      <div className="items-centerd m-auto flex w-full max-lg:pt-[5rem] lg:pt-[8rem]">
         <div className="m-auto w-[100%] text-left text-sm text-white">
           <div className="grid grid-cols-5 pl-6 text-lg font-semibold text-secondary max-lg:grid-cols-4 max-lg:text-sm">
             <div className="">Coin</div>
