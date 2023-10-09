@@ -5,8 +5,6 @@ import Wrapper from "../wrapper/Wrapper";
 import { Balance, Navbar, Traiding, Transactions } from "../componentes";
 
 function Exchange() {
-  const { coins } = useContext(CoinContext);
-
   return (
     <>
       <div className="grid grid-rows-[100px,1fr] gap-12 max-2xl:mb-20 max-2xl:grid-rows-[75px,1fr,605px] max-2xl:gap-8 max-md:grid-cols-1 max-md:gap-0 max-md:px-0">

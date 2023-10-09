@@ -31,13 +31,13 @@ function Traiding() {
           <option value="">
             <span className="text-sm">Seleccione una crypto</span>
           </option>
-          {coins.map((option) => (
+          {coins?.map((option) => (
             <option
               className="bg-[#0d0d0d]"
-              key={option.CoinInfo.Id}
-              value={option.DISPLAY.USD.PRICE}
+              key={option?.CoinInfo?.Id}
+              value={option?.DISPLAY?.USD.PRICE}
             >
-              {option.CoinInfo.FullName}
+              {option?.CoinInfo?.FullName}
             </option>
           ))}
         </select>
