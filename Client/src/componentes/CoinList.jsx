@@ -22,56 +22,60 @@ function CoinList() {
           </div>
 
           <div className="my-2 border-opacity-30 ">
-            {coins?.slice(0, 5).map((Element) => {
-              const numericValue = parseFloat(
-                Element.DISPLAY.USD.CHANGE24HOUR.substring(1)
-              );
-              return (
-                <div
-                  className="grid grid-cols-4 place-items-center rounded-md py-4 pl-6 hover:bg-white/10 max-2xl:py-4 max-md:pl-2"
-                  key={Element.CoinInfo.Id}
-                >
-                  <div className="item flex w-full items-center gap-2 max-md:gap-1">
-                    <img
-                      className="h-6 w-6"
-                      src={
-                        "https://www.cryptocompare.com" +
-                        Element.CoinInfo.ImageUrl
-                      }
-                      alt={Element.CoinInfo.FullName}
-                    />
-                    <span className="text-xl max-2xl:text-lg max-md:text-sm">
-                      {Element.CoinInfo.FullName}
-                    </span>
-                    <span className="text-lg uppercase text-secondary max-2xl:text-base max-md:hidden ">
-                      {Element.CoinInfo.Internal}
-                    </span>
-                  </div>
+            <div className="my-5 border-opacity-30">
+              {coins?.slice(5, 10).map((Element) => {
+                const numericValue = parseFloat(
+                  Element.DISPLAY?.USD.CHANGE24HOUR.substring(1)
+                );
+                return (
+                  <div
+                    className="grid grid-cols-4 place-items-center rounded-md py-5 pl-6 hover:bg-white/20 max-lg:grid-cols-4 max-lg:rounded-none max-lg:py-4 max-lg:pl-4"
+                    key={Element.CoinInfo.Id}
+                  >
+                    <div className="flex w-full items-center gap-2 max-lg:gap-1">
+                      <img
+                        className="h-6 w-6"
+                        src={
+                          "https://www.cryptocompare.com" +
+                          Element.CoinInfo.ImageUrl
+                        }
+                        alt={Element.CoinInfo.FullName}
+                      />
 
-                  <div className="text-center text-xl font-bold max-2xl:text-lg max-md:text-sm">
-                    {Element.DISPLAY.USD.PRICE}
-                  </div>
+                      <span className="text-xl max-lg:text-sm">
+                        {Element.CoinInfo.FullName}
+                      </span>
 
-                  <div className="text-center ">
-                    <span
-                      className={`text-center text-lg font-bold max-2xl:text-base max-md:text-sm ${
-                        numericValue > 0 ? "text-[#00A68C]" : "text-[#D9475A]"
-                      }`}
-                    >
-                      {Element.DISPLAY.USD.CHANGE24HOUR}
-                    </span>
-                  </div>
+                      <span className="text-lg uppercase text-secondary max-lg:hidden ">
+                        {Element.CoinInfo.Internal}
+                      </span>
+                    </div>
 
-                  <div className="flex items-center justify-center">
-                    <NavLink to="/Exchange">
-                      <button className="w-[8rem] rounded-md bg-main p-2 uppercase max-2xl:text-sm max-md:w-[4rem]">
-                        Buy
-                      </button>
-                    </NavLink>
+                    <div className="text-center text-xl font-bold max-lg:text-sm">
+                      {Element.DISPLAY?.USD.PRICE}
+                    </div>
+
+                    <div className="text-center ">
+                      <span
+                        className={`text-center text-lg font-bold max-sm:text-xs ${
+                          numericValue > 0 ? "text-[#00A68C]" : "text-[#D9475A]"
+                        }`}
+                      >
+                        {Element.DISPLAY?.USD.CHANGE24HOUR}
+                      </span>
+                    </div>
+
+                    <div className="flex items-center justify-center">
+                      <NavLink to="/Exchange">
+                        <button className="w-[8rem] rounded-md bg-main p-2 uppercase max-2xl:text-sm max-lg:w-[4rem]">
+                          Buy
+                        </button>
+                      </NavLink>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
