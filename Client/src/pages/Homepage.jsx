@@ -1,5 +1,11 @@
-import React from "react";
-import { CoinList, Home, HomeRegister, Navbar } from "../componentes";
+import {
+  CoinList,
+  Home,
+  HomeRegister,
+  Navbar,
+  Contact,
+  Footer,
+} from "../componentes";
 export function Homepage() {
   return (
     <>
@@ -7,6 +13,8 @@ export function Homepage() {
       <Home />
       <CoinList />
       <HomeRegister />
+      <Contact />
+      <Footer />
     </>
   );
 }

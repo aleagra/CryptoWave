@@ -1,86 +1,184 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { CoinContext } from "../context/CoinContext";
-import Wrapper from "../wrapper/Wrapper";
-function CoinList() {
+import { ArrowUpRight, ArrowDownRight, TrendingUp } from "lucide-react";
+
+function MarketTable() {
   const { coins } = useContext(CoinContext);
+
   return (
-    <div className="m-auto w-full">
-      <h1 className="my-4 text-center text-[4rem] font-bold text-white max-2xl:text-[3.5rem] max-md:px-4 max-md:text-[2.5rem] max-md:leading-[3rem]">
-        Buy <span className="text-main">crypto</span> at true cost
-      </h1>
-      <p className="mb-16 text-center text-[1.5rem] font-bold text-secondary max-2xl:mb-10 max-2xl:text-[1.2rem] max-md:px-10 max-md:text-center max-md:text-lg">
-        Whenever we can, we provide real-time data for free.
-      </p>
-      <div className="m-auto flex items-center max-md:m-0">
-        <div className="m-auto w-[100%] text-left text-sm text-white max-md:px-2">
-          <div className="grid grid-cols-4 pl-6 text-lg text-secondary max-2xl:text-base max-md:pl-2">
-            <div className="max-md:pl-4">Coin</div>
-            <div className="text-center">Last price</div>
-            <div className="text-center ">24h change</div>
-            <div className="text-center ">Trade</div>
+    <section id="market" className="relative overflow-hidden">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="mb-12 text-center">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#1f2227]/60 bg-[#14161a]/50 px-3 py-1.5 text-xs font-medium text-[#7d8086]">
+            <TrendingUp className="h-3.5 w-3.5" />
+            Datos en tiempo real
           </div>
 
-          <div className="my-2 border-opacity-30 ">
-            <div className="my-5 border-opacity-30">
-              {coins?.slice(5, 10).map((Element) => {
-                const numericValue = parseFloat(
-                  Element.DISPLAY?.USD.CHANGE24HOUR.substring(1)
-                );
-                return (
-                  <div
-                    className="grid grid-cols-4 place-items-center rounded-md py-5 pl-6 hover:bg-white/20 max-lg:grid-cols-4 max-lg:rounded-none max-lg:py-4 max-lg:pl-4"
-                    key={Element.CoinInfo.Id}
-                  >
-                    <div className="flex w-full items-center gap-2 max-lg:gap-1">
-                      <img
-                        className="h-6 w-6"
-                        src={
-                          "https://www.cryptocompare.com" +
-                          Element.CoinInfo.ImageUrl
-                        }
-                        alt={Element.CoinInfo.FullName}
-                      />
+          <h2 className="text-3xl font-bold tracking-tight text-[#f8f8f8] sm:text-4xl lg:text-5xl">
+            Compra{" "}
+            <span className="bg-linear-to-r from-[#22C55E] to-[#16a34a] bg-clip-text text-transparent">
+              cripto
+            </span>{" "}
+            al mejor precio
+          </h2>
 
-                      <span className="text-xl max-lg:text-sm">
-                        {Element.CoinInfo.FullName}
-                      </span>
+          <p className="mx-auto mt-4 max-w-2xl text-base text-[#7d8086] sm:text-lg">
+            Proporcionamos datos en tiempo real siempre que es posible.
+          </p>
+        </div>
 
-                      <span className="text-lg uppercase text-secondary max-lg:hidden ">
-                        {Element.CoinInfo.Internal}
-                      </span>
-                    </div>
+        {/* Table */}
+        <div className="overflow-hidden rounded-xl border border-[#1f2227]/60 bg-[#040405] backdrop-blur-sm">
+          {/* Table Header */}
+          <div className="hidden border-b border-[#1f2227]/40 bg-[#060607] px-6 py-4 sm:grid sm:grid-cols-12 sm:gap-4">
+            <div className="col-span-4 text-xs font-medium uppercase tracking-wider text-[#7d8086]">
+              Moneda
+            </div>
 
-                    <div className="text-center text-xl font-bold max-lg:text-sm">
-                      {Element.DISPLAY?.USD.PRICE}
-                    </div>
+            <div className="col-span-2 text-right text-xs font-medium uppercase tracking-wider text-[#7d8086]">
+              Precio
+            </div>
 
-                    <div className="text-center ">
-                      <span
-                        className={`text-center text-lg font-bold max-sm:text-xs ${
-                          numericValue > 0 ? "text-[#00A68C]" : "text-[#D9475A]"
-                        }`}
-                      >
-                        {Element.DISPLAY?.USD.CHANGE24HOUR}
-                      </span>
-                    </div>
+            <div className="col-span-2 text-right text-xs font-medium uppercase tracking-wider text-[#7d8086]">
+              24h Cambio
+            </div>
 
-                    <div className="flex items-center justify-center">
-                      <NavLink to="/Exchange">
-                        <button className="w-[8rem] rounded-md bg-main p-2 uppercase max-2xl:text-sm max-lg:w-[4rem]">
-                          Buy
-                        </button>
-                      </NavLink>
-                    </div>
-                  </div>
-                );
-              })}
+            <div className="col-span-2 text-right text-xs font-medium uppercase tracking-wider text-[#7d8086]">
+              Volumen
+            </div>
+
+            <div className="col-span-2 text-right text-xs font-medium uppercase tracking-wider text-[#7d8086]">
+              Acción
             </div>
           </div>
+
+          {/* BODY */}
+          <div className="divide-y divide-[#1f2227]/40">
+            {/* LOADER */}
+            {!coins &&
+              Array.from({ length: 6 }).map((_, i) => (
+                <div
+                  key={i}
+                  className="grid animate-pulse grid-cols-12 items-center gap-4 px-6 py-4"
+                >
+                  <div className="col-span-4 flex items-center gap-3">
+                    <div className="h-8 w-8 rounded-full "></div>
+                    <div className="h-4 w-24 rounded "></div>
+                  </div>
+
+                  <div className="col-span-2">
+                    <div className="ml-auto h-4 w-16 rounded"></div>
+                  </div>
+
+                  <div className="col-span-2">
+                    <div className="ml-auto h-4 w-14 rounded"></div>
+                  </div>
+
+                  <div className="col-span-2">
+                    <div className="ml-auto h-4 w-14 rounded"></div>
+                  </div>
+
+                  <div className="col-span-2">
+                    <div className="ml-auto h-8 w-20 rounded"></div>
+                  </div>
+                </div>
+              ))}
+
+            {/* DATA */}
+            {coins?.slice(0, 6).map((Element) => {
+              const price = Element.DISPLAY?.USD.PRICE;
+              const change = Element.DISPLAY?.USD.CHANGE24HOUR;
+              const rawVolume = Element.DISPLAY?.USD.VOLUME24HOUR;
+
+              const volume = rawVolume?.replace(/[^\d.,KMB]/gi, "");
+              const numericValue = parseFloat(change?.substring(1));
+
+              return (
+                <div
+                  key={Element.CoinInfo.Id}
+                  className="group flex flex-col gap-4 px-6 py-4 transition-colors hover:bg-[#060607] sm:grid sm:grid-cols-12 sm:items-center sm:gap-4"
+                >
+                  {/* Coin */}
+                  <div className="col-span-4 flex items-center gap-3">
+                    <img
+                      className="h-8 w-8"
+                      src={
+                        "https://www.cryptocompare.com" +
+                        Element.CoinInfo.ImageUrl
+                      }
+                      alt={Element.CoinInfo.FullName}
+                    />
+
+                    <div>
+                      <div className="text-[#f8f8f8]">
+                        {Element.CoinInfo.FullName}
+                      </div>
+
+                      <div className="text-sm text-[#7d8086]">
+                        {Element.CoinInfo.Internal}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Price */}
+                  <div className="col-span-2 hidden text-right sm:block">
+                    <span className="font-['Geist_Mono'] text-[#f8f8f8]">
+                      {price}
+                    </span>
+                  </div>
+
+                  {/* Change */}
+                  <div className="col-span-2 hidden text-right sm:block">
+                    <span
+                      className={`inline-flex items-center gap-1 font-['Geist_Mono'] ${
+                        numericValue > 0 ? "text-[#22C55E]" : "text-[#D9475A]"
+                      }`}
+                    >
+                      {numericValue > 0 ? (
+                        <ArrowUpRight className="h-3.5 w-3.5" />
+                      ) : (
+                        <ArrowDownRight className="h-3.5 w-3.5" />
+                      )}
+
+                      {change}
+                    </span>
+                  </div>
+
+                  {/* Volume */}
+                  <div className="col-span-2 hidden text-right sm:block">
+                    <span className="font-['Geist_Mono'] text-[#7d8086]">
+                      {volume}
+                    </span>
+                  </div>
+
+                  {/* Button */}
+                  <div className="col-span-2 sm:text-right">
+                    <NavLink to="/Exchange">
+                      <button className="w-full cursor-pointer rounded-md bg-[#22C55E] px-4 py-2 text-sm font-medium text-[#f8f8f8] hover:opacity-90 sm:w-auto">
+                        Comprar
+                      </button>
+                    </NavLink>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* View all */}
+        <div className="mt-8 text-center">
+          <NavLink to="/Market">
+            <button className="inline-flex items-center gap-2 rounded-md border border-[#1f2227] px-4 py-2 text-sm text-[#f8f8f8] hover:bg-[#14161a]">
+              Ver todos los mercados
+              <ArrowUpRight className="h-4 w-4" />
+            </button>
+          </NavLink>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
-export default Wrapper(CoinList);
+export default MarketTable;

@@ -1,19 +1,17 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@1,200;1,300;1,500;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap");
+@import "tailwindcss";
 
 @layer base {
-  html {
-    font-family: "Urbanist", sans-serif;
+  * {
+    @apply border-[#1f2227] outline-none;
   }
-}
-@layer base {
+
   body {
-    @apply h-screen bg-[#0d0d0d];
+    font-family: "Geist", sans-serif;
+    @apply bg-[#020204] text-[#f8f8f8];
   }
 }
-.active {
-  @apply text-main;
+
+body {
+  -webkit-font-smoothing: antialiased;
 }

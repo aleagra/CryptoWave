@@ -1,52 +1,127 @@
-import { useRef, useEffect } from "react";
-import lottie from "lottie-web";
-import animationData from "../assets/buy.json";
+import {
+  ArrowRight,
+  Layers,
+  Shield,
+  Zap,
+  Globe,
+  LineChart,
+  Lock,
+} from "lucide-react";
 import Wrapper from "../wrapper/Wrapper";
 
+const features = [
+  {
+    icon: Shield,
+    title: "Seguridad avanzada",
+    description:
+      "Protección de nivel empresarial con autenticación de dos factores, almacenamiento en frío y cifrado de extremo a extremo.",
+  },
+  {
+    icon: Zap,
+    title: "Transacciones instantáneas",
+    description:
+      "Procesamiento de órdenes en milisegundos con nuestra infraestructura de baja latencia distribuida globalmente.",
+  },
+  {
+    icon: LineChart,
+    title: "Herramientas profesionales",
+    description:
+      "Gráficos avanzados, indicadores técnicos y APIs para traders profesionales y desarrolladores.",
+  },
+  {
+    icon: Globe,
+    title: "Disponible globalmente",
+    description:
+      "Opera desde cualquier lugar del mundo con soporte en múltiples idiomas y monedas locales.",
+  },
+  {
+    icon: Lock,
+    title: "Cumplimiento regulatorio",
+    description:
+      "Licenciados y regulados en múltiples jurisdicciones, garantizando la máxima transparencia.",
+  },
+  {
+    icon: Layers,
+    title: "Múltiples activos",
+    description:
+      "Accede a criptomonedas, tokens, NFTs y activos tradicionales desde una sola plataforma.",
+  },
+];
 function HomeRegister() {
-  const animationContainer2 = useRef(null);
-
-  useEffect(() => {
-    const animation = lottie.loadAnimation({
-      container: animationContainer2.current,
-      animationData,
-      renderer: "svg",
-      loop: true,
-      autoplay: true,
-    });
-
-    return () => {
-      animation.destroy();
-    };
-  }, []);
-
   return (
-    <section className="flex h-full min-h-screen flex-col justify-center">
-      <div className="mx-auto flex flex-row-reverse  justify-center max-xl:w-[100%] max-lg:flex-col md:pt-0">
+    <section id="features" className="relative overflow-hidden py-20 sm:py-28">
+      {/* Background glow */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        {/* Glow superior */}
         <div
-          className="mx-auto w-[50%] max-lg:my-10 max-md:w-[80%] xl:w-[70%]"
-          ref={animationContainer2}
-        ></div>
-        <div className="flex flex-col justify-center gap-y-10 max-xl:m-auto  max-md:gap-y-6 lg:w-[50%]">
-          <p className="text-[5rem] font-bold leading-[5rem] text-white max-2xl:text-[3.5rem] max-2xl:leading-[4rem] max-lg:text-center max-md:px-4 max-md:text-[2.5rem] max-md:leading-[3rem]">
-            Invest in the world's most popular assets
-          </p>
-          <p className="text-[1.5rem] font-bold text-secondary max-2xl:text-[1.2rem] max-lg:text-center max-md:px-10 max-md:text-lg xl:pr-20">
-            From established industries to booming new age up-and-comers — pick
-            from over a dozen of different routes to a smart investment.
-          </p>
-          <a
-            href="/Login"
-            className="w-[20rem] max-2xl:w-[15rem] max-2xl:py-3 max-lg:mx-auto max-md:w-[10rem]"
-          >
-            <button className="w-full rounded-lg bg-main py-4 px-2 text-xl text-white">
-              Start earning
+          className="max-w-150 absolute right-0 
+        top-1/2 aspect-square 
+        w-[50vw] -translate-y-1/2 translate-x-1/2
+        rounded-full bg-[#22C55E]/5 blur-3xl"
+        />
+        {/* Glow inferior (opcional, para simetría) */}
+        <div
+          className="max-w-125 absolute bottom-0 
+        left-1/2 aspect-square 
+        w-[40vw] translate-x-1/2 translate-y-1/2
+        rounded-full bg-[#22C55E]/5 blur-3xl"
+        />
+      </div>
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="mb-16 grid gap-8 lg:grid-cols-2 lg:items-end">
+          <div>
+            <h2 className="text-balance text-3xl font-bold tracking-tight text-[#f8f8f8] sm:text-4xl lg:text-5xl">
+              Invierte en los activos{" "}
+              <span className="bg-linear-to-r from-[#22C55E] to-[#16a34a] bg-clip-text text-transparent">
+                más populares
+              </span>{" "}
+              del mundo
+            </h2>
+
+            <p className="text-pretty mt-4 max-w-lg text-base text-[#7d8086] sm:text-lg">
+              Desde industrias establecidas hasta los nuevos protagonistas del
+              mercado — elige entre docenas de rutas hacia una inversión
+              inteligente.
+            </p>
+          </div>
+
+          <div className="lg:text-right">
+            <button className="inline-flex items-center gap-2 rounded-md bg-[#22C55E] px-5 py-3 text-sm font-medium text-[#f8f8f8] transition-colors hover:bg-[#16a34a]">
+              Comenzar a invertir
+              <ArrowRight className="h-4 w-4" />
             </button>
-          </a>
+          </div>
+        </div>
+
+        {/* Features Grid */}
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {features.map((feature, index) => {
+            const Icon = feature.icon;
+
+            return (
+              <div
+                key={index}
+                className="group rounded-xl border border-[#1f2227]/60 bg-[#14161a]/30 p-6 transition-all hover:border-[#22C55E]/40 hover:bg-[#14161a]/50"
+              >
+                <div className="mb-4 inline-flex rounded-lg bg-[#22C55E]/10 p-2.5">
+                  <Icon className="h-5 w-5 text-[#22C55E]" />
+                </div>
+
+                <h3 className="mb-2 text-lg font-semibold text-[#f8f8f8]">
+                  {feature.title}
+                </h3>
+
+                <p className="text-sm leading-relaxed text-[#7d8086]">
+                  {feature.description}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
   );
 }
-
 export default Wrapper(HomeRegister);

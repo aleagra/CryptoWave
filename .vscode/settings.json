@@ -1,0 +1,4 @@
+{
+  "exportall.config.folderListener": ["/Client/src/componentes"],
+  "exportall.config.relExclusion": ["/Client/src/componentes"]
+}

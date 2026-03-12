@@ -1,6 +1,5 @@
-import { useState, useParams } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import logo from "../../public/cryptoLogo.webp";
 import {
   BarsIcon,
   CloseIcon,
@@ -9,135 +8,159 @@ import {
 } from "../utilities/icons";
 
 function Navbar() {
-  const [search, setSearch] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [buscar, setBuscar] = useState("");
-  let [open, setOpen] = useState(false);
-
-  const links = [
-    {
-      title: "Exchange",
-      ref: "/Exchange",
-    },
-    {
-      title: "Market",
-      ref: "/Market",
-    },
-    { title: "Profile", ref: "/Login", hidden: "lg:hidden" },
-  ];
-
-  const toggleOpen = () => {
-    setOpen(!open);
-  };
-
-  const toggleSearch = () => {
-    setSearch(!search);
-  };
 
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
       window.location.href = buscar === "" ? "/Market" : "/Search/" + buscar;
-      toggleSearch();
     }
   };
+
   return (
-    <div className="fixed top-0 left-0 z-10 w-full">
-      <div className="flex w-full items-center justify-between bg-background py-6 px-[10rem] text-sm max-2xl:px-[5rem] max-lg:absolute max-md:justify-center max-md:px-0">
-        <div className="flex items-center">
-          <BarsIcon toggleOpen={toggleOpen} open={open} />
+    <header className="sticky top-0 z-50 w-full border-b border-[#1f2227]/40 bg-[#020204] backdrop-blur-xl">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        {/* Logo */}
+        <NavLink to="/" className="flex items-center gap-2.5">
+          <div className="flex h-8 w-8 items-center justify-center rounded-full border border-[#22C55E]/50 bg-[#22C55E]/10">
+            <span className="text-sm font-bold text-[#22C55E]">$</span>
+          </div>
+          <span className="text-lg font-semibold tracking-tight text-[#f8f8f8]">
+            CryptoWave
+          </span>
+        </NavLink>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden items-center gap-1 md:flex">
           <NavLink
-            to="/"
-            className="w-40 text-center text-lg hover:text-main max-md:w-36"
+            to="/Exchange"
+            className="rounded-md px-3 py-2 text-sm font-medium text-[#7d8086] transition-colors hover:bg-[#14161a] hover:text-[#f8f8f8]"
           >
-            <img src={logo} alt="" />
+            Exchange
           </NavLink>
-          <ul
-            className={`absolute left-0 flex h-screen w-full justify-center overflow-hidden bg-background pb-12 text-center font-semibold text-white transition-all duration-200 max-lg:flex-col max-md:px-10 lg:static lg:right-0 lg:z-auto lg:flex lg:h-auto lg:w-auto lg:items-center lg:pl-0 lg:pb-0 ${
-              open ? "top-16 " : "top-[-6000px] "
-            }`}
-          >
-            {links.map((link) => (
-              <NavLink
-                key={link.ref}
-                to={link.ref}
-                activeclassname="active"
-                onClick={toggleOpen}
-                className={`my-12 text-3xl hover:text-main md:ml-12 lg:my-0 lg:text-[16px] ${link.hidden} `}
-              >
-                {link.title}
-              </NavLink>
-            ))}
-          </ul>
-        </div>
-        <div className="right-0 flex items-center justify-end gap-8 max-md:absolute max-md:mr-6 max-md:w-fit max-md:gap-0">
-          <input
-            onChange={(e) => setBuscar(e.target.value)}
-            value={buscar}
-            placeholder="Search"
-            maxLength="20"
-            className="rounded-xl bg-input p-2 px-4 text-white outline-none max-lg:w-full max-md:hidden"
-            onKeyPress={handleKeyPress}
-          />
-          <a
-            className=""
-            href={buscar === "" ? "/Market" : "/Search/" + buscar}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="white"
-              className="h-6 w-6 bg-transparent max-md:hidden"
-            >
-              <path
-                strokeLinejoin="round"
-                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-              />
-            </svg>
-          </a>
 
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="white"
-            className="h-6 w-6 bg-transparent md:hidden"
-            onClick={toggleSearch}
+          <NavLink
+            to="/Market"
+            className="rounded-md px-3 py-2 text-sm font-medium text-[#7d8086] transition-colors hover:bg-[#14161a] hover:text-[#f8f8f8]"
           >
-            <path
-              strokeLinejoin="round"
-              d={
-                search
-                  ? "M6 18L18 6M6 6l12 12"
-                  : "M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-              }
+            Market
+          </NavLink>
+
+          <NavLink
+            to="/Features"
+            className="rounded-md px-3 py-2 text-sm font-medium text-[#7d8086] transition-colors hover:bg-[#14161a] hover:text-[#f8f8f8]"
+          >
+            Features
+          </NavLink>
+        </nav>
+
+        {/* Desktop Actions */}
+        <div className="hidden items-center gap-3 md:flex">
+          {/* Search */}
+          <div className="relative">
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#7d8086]">
+              <SearchIcon />
+            </span>
+
+            <input
+              type="text"
+              placeholder="Buscar..."
+              value={buscar}
+              onChange={(e) => setBuscar(e.target.value)}
+              onKeyDown={handleKeyPress}
+              className="h-9 w-48 rounded-md bg-[#14161a]/50 pl-9 pr-3 text-sm text-[#f8f8f8] outline-none placeholder:text-[#7d8086] focus-visible:bg-[#14161a] lg:w-56"
             />
-          </svg>
+          </div>
 
-          <NavLink to="/Login">
+          {/* User */}
+          <NavLink
+            to="/Login"
+            className="flex h-9 w-9 items-center justify-center rounded-md text-[#7d8086] transition-colors hover:bg-[#14161a] hover:text-[#f8f8f8]"
+          >
             <ProfileIcon />
           </NavLink>
+
+          {/* CTA */}
+          <NavLink
+            to="/Register"
+            className="text-primary-[#f8f8f8] flex h-9 items-center rounded-md bg-[#22C55E] px-4 text-sm font-medium transition-colors hover:opacity-90"
+          >
+            Comenzar
+          </NavLink>
         </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="flex h-9 w-9 items-center justify-center rounded-md text-[#7d8086] transition-colors hover:text-[#f8f8f8] md:hidden"
+        >
+          {mobileMenuOpen ? <CloseIcon /> : <BarsIcon />}
+        </button>
       </div>
-      <ul className={` ${search ? "top-12 left-0" : "top-[-7000px] hidden"}`}>
-        <input
-          onChange={(e) => setBuscar(e.target.value)}
-          value={buscar}
-          placeholder="Search"
-          maxLength="20"
-          className="my-1 border border-input bg-background p-4 px-4 text-white outline-none max-lg:w-full max-md:absolute lg:hidden"
-          onKeyPress={handleKeyPress}
-        />
-        <div className="z-20">
-          <CloseIcon toggleSearch={toggleSearch} />
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="border-border/40 border-t bg-[#060709] md:hidden">
+          <div className="space-y-1 px-4 py-4">
+            {/* Search */}
+            <div className="relative mb-4">
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#7d8086]">
+                <SearchIcon />
+              </span>
+
+              <input
+                type="text"
+                placeholder="Buscar..."
+                value={buscar}
+                onChange={(e) => setBuscar(e.target.value)}
+                onKeyDown={handleKeyPress}
+                className="h-10 w-full rounded-md bg-[#14161a]/50 pl-9 pr-3 text-sm text-[#f8f8f8] outline-none placeholder:text-[#7d8086]"
+              />
+            </div>
+
+            <NavLink
+              to="/Exchange"
+              className="block rounded-md px-3 py-2.5 text-sm font-medium text-[#7d8086] transition-colors hover:bg-[#14161a] hover:text-[#f8f8f8]"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Exchange
+            </NavLink>
+
+            <NavLink
+              to="/Market"
+              className="block rounded-md px-3 py-2.5 text-sm font-medium text-[#7d8086] transition-colors hover:bg-[#14161a] hover:text-[#f8f8f8]"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Market
+            </NavLink>
+
+            <NavLink
+              to="/Features"
+              className="block rounded-md px-3 py-2.5 text-sm font-medium text-[#7d8086] transition-colors hover:bg-[#14161a] hover:text-[#f8f8f8]"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Features
+            </NavLink>
+
+            <div className="flex gap-2 pt-4">
+              <NavLink
+                to="/Login"
+                className="flex flex-1 items-center justify-center rounded-md border border-border px-4 py-2 text-sm text-[#7d8086] hover:bg-[#14161a]"
+              >
+                Iniciar sesión
+              </NavLink>
+
+              <NavLink
+                to="/Register"
+                className="flex flex-1 items-center justify-center rounded-md bg-[#22C55E] px-4 py-2 text-sm font-medium text-[#f8f8f8] hover:opacity-90"
+              >
+                Comenzar
+              </NavLink>
+            </div>
+          </div>
         </div>
-        <a
-          className=" top-8 right-14  "
-          href={buscar === "" ? "/Market" : "/Search/" + buscar}
-        ></a>
-      </ul>
-    </div>
+      )}
+    </header>
   );
 }
 
