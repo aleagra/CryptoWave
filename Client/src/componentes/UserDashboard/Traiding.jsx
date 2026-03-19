@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { CoinContext } from "../context/CoinContext";
+﻿import { useContext } from "react";
+import { CoinContext } from "../../context/CoinContext";
 import Swal from "sweetalert2";
 function Traiding() {
   const { coins } = useContext(CoinContext);
@@ -76,3 +76,4 @@ function Traiding() {
 }
 
 export default Traiding;
+

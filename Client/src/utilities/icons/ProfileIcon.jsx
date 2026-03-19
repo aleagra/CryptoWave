@@ -1,5 +1,3 @@
-import React from "react";
-
 function ProfileIcon() {
   return (
     <svg
@@ -7,8 +5,8 @@ function ProfileIcon() {
       fill="none"
       viewBox="0 0 24 24"
       strokeWidth={1.5}
-      stroke="white"
-      className="h-6 w-7 text-icons max-md:hidden"
+      stroke="currentColor"
+      className="h-6 w-7"
     >
       <path
         strokeLinejoin="round"

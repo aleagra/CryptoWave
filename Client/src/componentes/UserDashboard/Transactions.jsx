@@ -1,70 +1,12 @@
-import { useContext } from "react";
-import { CoinContext } from "../context/CoinContext";
+﻿import { useContext } from "react";
+import { CoinContext } from "../../context/CoinContext";
+import { transactions } from "../../utilities/icons/data";
 
 function Transactions() {
   const { coins } = useContext(CoinContext);
 
-  const transactions = [
-    {
-      name: "BTC",
-      img: "https://www.cryptocompare.com/media/37746251/btc.png",
-      amount: "0.31",
-      value: "$9.418,724",
-      status: "Complete",
-      style: "bg-green-400/20 text-green-400",
-    },
-    {
-      name: "ETH",
-      img: "https://www.cryptocompare.com/media/37746238/eth.png",
-      amount: "2.75",
-      value: "$5.118,75",
-      status: "Complete",
-      style: "bg-green-400/20 text-green-400",
-    },
-    {
-      name: "USDT",
-      img: "https://www.cryptocompare.com/media/37746338/usdt.png",
-      amount: "540",
-      value: "$540",
-      status: "In progress",
-      style: "bg-yellow-400/20 text-yellow-400",
-    },
-    {
-      name: "BCH",
-      img: "https://www.cryptocompare.com/media/37746245/bch.png",
-      amount: "0,8674",
-      value: "$200",
-      status: "Failed",
-      style: "bg-red-400/20 text-red-400",
-    },
-    {
-      name: "USDC",
-      img: "https://www.cryptocompare.com/media/34835941/usdc.png",
-      amount: "400",
-      value: "$400",
-      status: "Complete",
-      style: "bg-green-400/20 text-green-400",
-    },
-    {
-      name: "XRP",
-      img: "https://www.cryptocompare.com/media/38553096/xrp.png",
-      amount: "634.5",
-      value: "$300",
-      status: "In progress",
-      style: "bg-yellow-400/20 text-yellow-400",
-    },
-    {
-      name: "TUSD",
-      img: "https://www.cryptocompare.com/media/38554125/tusd.png",
-      amount: "395",
-      value: "$395",
-      status: "Failded",
-      style: "bg-red-400/20 text-red-400",
-    },
-  ];
-
   return (
-    <div className="max-2xl: m-auto w-[100%] text-left text-sm text-white ">
+    <div className="max-2xl: m-auto w-full text-left text-sm text-white ">
       <div className="grid grid-cols-5 pl-6 text-lg font-semibold text-secondary max-md:grid-cols-4 max-md:pl-0">
         <div className="text-center">Type</div>
         <div className="text-center max-md:pl-4">Coin</div>
@@ -87,7 +29,7 @@ function Transactions() {
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="h-7 w-7 rounded-full bg-yellow-400 stroke-black p-[5px] max-md:hidden"
+                  className="p-1.25 h-7 w-7 rounded-full bg-yellow-400 stroke-black max-md:hidden"
                 >
                   <path
                     strokeLinecap="round"
@@ -125,3 +67,4 @@ function Transactions() {
 }
 
 export default Transactions;
+

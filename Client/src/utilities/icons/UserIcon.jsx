@@ -1,6 +1,4 @@
-import React from "react";
-
-function UserIcon({ classname }) {
+function UserIcon({ className = "" }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -8,7 +6,7 @@ function UserIcon({ classname }) {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className={classname}
+      className={className}
     >
       <path
         strokeLinecap="round"

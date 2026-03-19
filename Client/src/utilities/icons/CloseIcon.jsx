@@ -1,15 +1,13 @@
-import React from "react";
-
-function CloseIcon({ toggleSearch }) {
+function CloseIcon({ className = "", onClick }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
       strokeWidth={1.5}
-      stroke="white"
-      className="absolute top-6 right-5 h-6 w-6 bg-transparent md:hidden"
-      onClick={toggleSearch}
+      stroke="currentColor"
+      onClick={onClick}
+      className={`h-5 w-5 cursor-pointer ${className}`}
     >
       <path
         strokeLinecap="round"

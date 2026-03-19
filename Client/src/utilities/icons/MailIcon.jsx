@@ -1,6 +1,4 @@
-import React from "react";
-
-function MailIcon() {
+function MailIcon({ className = "" }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -8,7 +6,7 @@ function MailIcon() {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="absolute bottom-0 top-11 left-3 h-5 w-5"
+      className={`h-4 w-4 ${className}`}
     >
       <path
         strokeLinecap="round"

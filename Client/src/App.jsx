@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CoinContextProvider from "./context/CoinContext";
 import { Exchange, Homepage, Login, Market, Register, Search } from "./pages";
+import Trade from "./pages/Trade";
 
 function App() {
   return (
@@ -10,11 +11,12 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Homepage />} />
-            <Route path="/Market" element={<Market />} />
-            <Route path="/Exchange" element={<Exchange />} />
-            <Route path="/Register" element={<Register />} />
-            <Route path="/Login" element={<Login />} />
-            <Route path="/Search/:buscar" element={<Search />} />
+            <Route path="/market" element={<Market />} />
+            <Route path="/exchange" element={<Exchange />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/search/:buscar" element={<Search />} />
+            <Route path="/trade/:symbol" element={<Trade />} />
           </Routes>
         </BrowserRouter>
       </CoinContextProvider>

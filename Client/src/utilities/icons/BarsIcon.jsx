@@ -1,14 +1,13 @@
-import React from "react";
-
-function BarsIcon({ toggleOpen, open }) {
+function BarsIcon({ className = "", onClick, open = false }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
+      fill="none"
       viewBox="0 0 24 24"
       strokeWidth={1.5}
-      stroke="white"
-      className="absolute left-0 h-7 w-7 cursor-pointer max-lg:ml-6 lg:hidden"
-      onClick={toggleOpen}
+      stroke="currentColor"
+      onClick={onClick}
+      className={`h-5 w-5 cursor-pointer transition ${className}`}
     >
       <path
         strokeLinecap="round"

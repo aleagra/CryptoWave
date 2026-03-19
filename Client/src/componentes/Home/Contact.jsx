@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Contact() {
   return (
@@ -9,7 +10,6 @@ export default function Contact() {
           border-[#1f2227]/60 from-[#050508] 
           px-6 py-16 sm:px-12 sm:py-20 lg:px-20"
         >
-          {/* Background decorations */}
           <div className="pointer-events-none absolute inset-0 -z-10">
             <div className="absolute -left-20 -top-20 h-40 w-40 rounded-full bg-[#22C55E]/20 blur-3xl" />
             <div className="absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-[#16a34a]/20 blur-3xl" />
@@ -25,16 +25,20 @@ export default function Contact() {
             </p>
 
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              {/* Botón principal */}
-              <button className="flex w-full items-center justify-center gap-2 rounded-md bg-[#22C55E] px-6 py-3 text-sm font-medium text-[#f8f8f8] transition hover:opacity-90 sm:w-auto">
+              <Link
+                to="/register"
+                className="flex w-full items-center justify-center gap-2 rounded-md bg-[#22C55E] px-6 py-3 text-sm font-medium text-[#f8f8f8] transition hover:opacity-90 sm:w-auto"
+              >
                 Crear cuenta gratis
                 <ArrowRight className="h-4 w-4" />
-              </button>
+              </Link>
 
-              {/* Botón outline */}
-              <button className="w-full rounded-md border border-[#22C55E] px-6 py-3 text-sm font-medium text-[#22C55E] transition hover:bg-[#22C55E]/10 sm:w-auto">
-                Contactar ventas
-              </button>
+              <Link
+                to="/market"
+                className="w-full rounded-md border border-[#22C55E] px-6 py-3 text-sm font-medium text-[#22C55E] transition hover:bg-[#22C55E]/10 sm:w-auto"
+              >
+                Ver mercado
+              </Link>
             </div>
 
             <p className="mt-6 text-xs text-[#7d8086]">
@@ -46,3 +50,4 @@ export default function Contact() {
     </section>
   );
 }
+

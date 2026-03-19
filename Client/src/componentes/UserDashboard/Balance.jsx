@@ -1,34 +1,6 @@
-import React from "react";
+﻿import { balance } from "../../utilities/icons/data";
 
 function Balance() {
-  const balance = [
-    {
-      coin: "Bitcoin",
-      symbol: "BTC",
-      total: "$10.052",
-      profit: "+6.3%",
-    },
-    {
-      coin: "Ethereum",
-      symbol: "ETH",
-      total: "$5.250",
-      profit: "+2.5%",
-    },
-    {
-      coin: "Solana",
-      symbol: "SOL",
-      total: "$2.523",
-      profit: "-1.5%",
-    },
-    {
-      coin: "Cardano",
-      symbol: "ADA",
-      total: "$15.645",
-      profit: "+20.34%",
-      hidden: "max-2xl:hidden",
-    },
-  ];
-
   return (
     <div className="flex h-full w-full flex-col justify-center px-5 text-center text-white">
       <div className="rounded-lg bg-background px-8 pb-8 max-2xl:pb-2">
@@ -36,7 +8,7 @@ function Balance() {
         <h1 className="my-2 whitespace-nowrap text-4xl font-bold text-white">
           $ 30,000,20
         </h1>
-        <h1 className="mx-auto w-fit whitespace-nowrap rounded-full bg-main p-1 px-2 text-sm font-bold">
+        <h1 className="bg-main mx-auto w-fit whitespace-nowrap rounded-full p-1 px-2 text-sm font-bold">
           +27.4 % | + $653.43
         </h1>
       </div>
@@ -44,8 +16,8 @@ function Balance() {
         <div className="mt-5 flex justify-between">
           <p className="pl-2 text-left text-lg">Assets</p>
           <a
-            href="/Login"
-            className="cursor-pointer pr-2 text-right text-lg text-main"
+            href="/login"
+            className="text-main cursor-pointer pr-2 text-right text-lg"
           >
             See all
           </a>
@@ -71,3 +43,4 @@ function Balance() {
 }
 
 export default Balance;
+
