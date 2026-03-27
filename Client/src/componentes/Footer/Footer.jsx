@@ -25,10 +25,15 @@ export default function Footer() {
             </p>
 
             <div className="mt-4 flex justify-center gap-3 lg:justify-start">
-              {[Twitter, Github, Linkedin].map((Icon, i) => (
+              {[
+                { Icon: Twitter, name: "Twitter" },
+                { Icon: Github, name: "GitHub" },
+                { Icon: Linkedin, name: "LinkedIn" }
+              ].map(({ Icon, name }, i) => (
                 <a
                   key={i}
                   href="#"
+                  aria-label={name}
                   className="rounded-md p-2 text-[#7d8086] transition hover:bg-[#14161a] hover:text-white"
                 >
                   <Icon className="h-4 w-4" />

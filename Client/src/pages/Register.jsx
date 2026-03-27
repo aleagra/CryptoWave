@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import { ArrowIcon, MailIcon, Padlock, UserIcon } from "../utilities/icons";
 
 function Register() {
@@ -20,7 +21,13 @@ function Register() {
         <ArrowIcon className="h-5 w-5" />
       </button>
 
-      <div className="w-full max-w-md">
+      <motion.div 
+        initial={{ opacity: 0, y: 30, scale: 0.95 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="w-full max-w-md"
+      >
         <div className="rounded-2xl border border-[#2a2a2a] bg-[#060606] p-8 shadow-xl shadow-black/40">
           <div className="mb-8 text-center">
             <h1 className="text-2xl font-semibold">Crear cuenta</h1>
@@ -134,7 +141,7 @@ function Register() {
             Iniciar sesión
           </Link>
         </p>
-      </div>
+      </motion.div>
     </div>
   );
 }

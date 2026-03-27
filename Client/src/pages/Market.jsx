@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { motion } from "framer-motion";
 import { TrendingUp, Search } from "lucide-react";
 
 import { CoinContext } from "../context/CoinContext";
@@ -34,7 +35,13 @@ export default function Market() {
       <Navbar />
 
       <main className="flex-1">
-        <section className="py-8 sm:py-10">
+        <motion.section 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="py-8 sm:py-10"
+        >
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-8 sm:mb-10">
               <div className="mb-4 inline-flex items-center gap-1 rounded-full border border-[#22C55E]/20 bg-[#22C55E]/10 px-3 py-1.5 text-xs font-medium text-[#22C55E]">
@@ -95,7 +102,7 @@ export default function Market() {
               />
             </div>
           </div>
-        </section>
+        </motion.section>
       </main>
 
       <Footer />

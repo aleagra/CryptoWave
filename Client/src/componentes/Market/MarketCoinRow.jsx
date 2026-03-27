@@ -2,7 +2,8 @@ import { NavLink } from "react-router-dom";
 import { ArrowUpRight, ArrowDownRight } from "lucide-react";
 
 export function MarketCoinRow({ coin }) {
-  const change = parseFloat(coin.DISPLAY?.USD.CHANGE24HOUR?.replace("$", "")) || 0;
+  const change =
+    parseFloat(coin.DISPLAY?.USD.CHANGE24HOUR?.replace("$", "")) || 0;
   const positive = change >= 0;
 
   return (
@@ -32,7 +33,11 @@ export function MarketCoinRow({ coin }) {
                 : "bg-red-400/10 text-red-400"
             }`}
           >
-            {positive ? <ArrowUpRight className="h-3.5 w-3.5" /> : <ArrowDownRight className="h-3.5 w-3.5" />}
+            {positive ? (
+              <ArrowUpRight className="h-3.5 w-3.5" />
+            ) : (
+              <ArrowDownRight className="h-3.5 w-3.5" />
+            )}
             {coin.DISPLAY?.USD.CHANGEPCT24HOUR}%
           </span>
         </div>
@@ -43,7 +48,7 @@ export function MarketCoinRow({ coin }) {
 
         <div className="col-span-2 text-right">
           <NavLink to={`/trade/${coin.CoinInfo.Name}`}>
-            <button className="rounded-lg bg-[#22C55E] px-4 py-2 text-sm hover:bg-[#16a34a]">
+            <button className="cursor-pointer rounded-lg bg-[#22C55E] px-4 py-2 text-sm hover:bg-[#16a34a]">
               Operar
             </button>
           </NavLink>
@@ -72,7 +77,11 @@ export function MarketCoinRow({ coin }) {
                 positive ? "text-[#22C55E]" : "text-red-400"
               }`}
             >
-              {positive ? <ArrowUpRight className="h-3 w-3" /> : <ArrowDownRight className="h-3 w-3" />}
+              {positive ? (
+                <ArrowUpRight className="h-3 w-3" />
+              ) : (
+                <ArrowDownRight className="h-3 w-3" />
+              )}
               {coin.DISPLAY?.USD.CHANGEPCT24HOUR}%
             </span>
           </div>

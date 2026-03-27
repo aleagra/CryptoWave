@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 import { Navbar, Footer } from "../componentes";
 import { CoinContext } from "../context/CoinContext";
@@ -38,7 +39,12 @@ export default function Trade() {
       <Navbar />
 
       <main className="flex-1">
-        <div className="border-b border-white/10">
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="border-b border-white/10"
+        >
           <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between p-4 sm:p-6 xl:px-8">
             <Link
               to="/market"
@@ -54,9 +60,14 @@ export default function Trade() {
               <span className="h-2 w-2 animate-pulse rounded-full bg-[#22C55E]" />
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+          className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-10"
+        >
           <TradeHeader coin={coin} symbol={symbol} price={price} isPositive={isPositive} />
 
           <div className="grid gap-6 lg:grid-cols-3">
@@ -133,7 +144,7 @@ export default function Trade() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </main>
 
       <Footer />

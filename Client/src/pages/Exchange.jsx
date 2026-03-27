@@ -1,4 +1,5 @@
 import { Clock } from "lucide-react";
+import { motion } from "framer-motion";
 import { Navbar, Footer, Transactions } from "../componentes";
 import { PortfolioList } from "../componentes/Exchange/PortfolioList";
 
@@ -8,7 +9,13 @@ export default function ExchangePage() {
       <Navbar />
 
       <main className="flex-1">
-        <div className="border-b border-[#2a2a2a]/60">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="border-b border-[#2a2a2a]/60"
+        >
           <div className="mx-auto max-w-7xl px-6 py-10">
             <div className="sm:flex-row sm:justify-between">
               <div>
@@ -27,8 +34,14 @@ export default function ExchangePage() {
               </div>
             </div>
           </div>
-        </div>
-        <div className="mx-auto max-w-7xl px-4 py-8">
+        </motion.div>
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+          className="mx-auto max-w-7xl px-4 py-8"
+        >
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 ">
             <div className="lg:col-span-4">
               <PortfolioList />
@@ -46,7 +59,7 @@ export default function ExchangePage() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         <Footer />
       </main>

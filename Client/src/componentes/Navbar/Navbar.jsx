@@ -84,6 +84,7 @@ function Navbar() {
 
           <NavLink
             to="/login"
+            aria-label="Perfil"
             className="flex h-9 w-9 items-center justify-center rounded-md text-[#7d8086] transition-all duration-200 hover:bg-[#14161a] hover:text-white"
           >
             <ProfileIcon />
@@ -91,6 +92,7 @@ function Navbar() {
         </div>
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
           className="flex h-9 w-9 items-center justify-center rounded-md text-[#7d8086] md:hidden"
         >
           {mobileMenuOpen ? <CloseIcon /> : <BarsIcon />}
@@ -146,6 +148,7 @@ function Navbar() {
 
               <NavLink
                 to="/login"
+                aria-label="Perfil"
                 className="flex h-9 w-9 items-center justify-center rounded-md text-[#7d8086] transition-all duration-200 hover:bg-[#14161a] hover:text-white"
               >
                 <ProfileIcon />

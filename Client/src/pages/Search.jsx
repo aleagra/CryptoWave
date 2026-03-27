@@ -1,5 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import { NavLink, useParams } from "react-router-dom";
+import { motion } from "framer-motion";
 import {
   ArrowUpRight,
   ArrowDownRight,
@@ -29,7 +30,12 @@ export default function Search() {
       <Navbar />
 
       <main className="flex-1">
-        <section className="py-10">
+        <motion.section 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="py-10"
+        >
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-10">
               <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
@@ -213,7 +219,7 @@ export default function Search() {
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
       </main>
 
       <Footer />
