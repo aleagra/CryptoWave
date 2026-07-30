@@ -3,7 +3,7 @@ import { ArrowUpRight, ArrowDownRight } from "lucide-react";
 
 export function MarketCoinRow({ coin }) {
   const change =
-    parseFloat(coin.DISPLAY?.USD.CHANGE24HOUR?.replace("$", "")) || 0;
+    parseFloat(coin?.DISPLAY?.USD?.CHANGE24HOUR?.replace(/[$,]/g, "")) || 0;
   const positive = change >= 0;
 
   return (
@@ -22,7 +22,7 @@ export function MarketCoinRow({ coin }) {
         </div>
 
         <div className="col-span-2 text-right font-mono text-white">
-          {coin.DISPLAY?.USD.PRICE}
+          {coin?.DISPLAY?.USD?.PRICE}
         </div>
 
         <div className="col-span-2 flex justify-center">
@@ -38,12 +38,12 @@ export function MarketCoinRow({ coin }) {
             ) : (
               <ArrowDownRight className="h-3.5 w-3.5" />
             )}
-            {coin.DISPLAY?.USD.CHANGEPCT24HOUR}%
+            {coin?.DISPLAY?.USD?.CHANGEPCT24HOUR}%
           </span>
         </div>
 
         <div className="col-span-2 text-right font-mono text-[#7d8086]">
-          {coin.DISPLAY?.USD.VOLUME24HOURTO}
+          {coin?.DISPLAY?.USD?.VOLUME24HOURTO}
         </div>
 
         <div className="col-span-2 text-right">
@@ -70,7 +70,7 @@ export function MarketCoinRow({ coin }) {
 
           <div className="text-right">
             <p className="font-mono text-sm text-white">
-              {coin.DISPLAY?.USD.PRICE}
+              {coin?.DISPLAY?.USD?.PRICE}
             </p>
             <span
               className={`flex items-center justify-end gap-1 text-xs ${
@@ -82,14 +82,14 @@ export function MarketCoinRow({ coin }) {
               ) : (
                 <ArrowDownRight className="h-3 w-3" />
               )}
-              {coin.DISPLAY?.USD.CHANGEPCT24HOUR}%
+              {coin?.DISPLAY?.USD?.CHANGEPCT24HOUR}%
             </span>
           </div>
         </div>
 
         <div className="flex items-center justify-between border-t border-white/10 pt-2">
           <span className="text-xs text-[#7d8086]">
-            Vol: {coin.DISPLAY?.USD.VOLUME24HOURTO}
+            Vol: {coin?.DISPLAY?.USD?.VOLUME24HOURTO}
           </span>
           <NavLink to={`/trade/${coin.CoinInfo.Name}`}>
             <button className="cursor-pointer rounded-md bg-[#22C55E] px-3 py-1.5 text-xs font-medium text-black">

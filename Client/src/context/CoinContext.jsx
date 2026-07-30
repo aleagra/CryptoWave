@@ -5,8 +5,9 @@ export const CoinContext = createContext();
 
 function CoinContextProvider({ children }) {
   const [coins, setCoins] = useState([]);
+  const apiKey = import.meta.env.VITE_CRYPTO_API_KEY;
   const url =
-    "https://min-api.cryptocompare.com/data/top/totalvolfull?limit=100&tsym=USD&api_key=dcfdfec656ebe0c95f2f72a0aaa4e2d321e2f7e714606f80f98ad1b8a65d79d4";
+    `https://min-api.cryptocompare.com/data/top/totalvolfull?limit=100&tsym=USD&api_key=${apiKey}`;
 
   useEffect(() => {
     async function fetchData() {

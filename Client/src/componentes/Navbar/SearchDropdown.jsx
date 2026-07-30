@@ -8,7 +8,7 @@ export function SearchDropdown({ query, resultados, totalResultados, onSelect })
       <div className="space-y-1 p-2">
         {resultados.map((coin) => {
           const change =
-            parseFloat(coin.DISPLAY?.USD.CHANGE24HOUR?.replace("$", "")) || 0;
+            parseFloat(coin?.DISPLAY?.USD?.CHANGE24HOUR?.replace(/[$,]/g, "")) || 0;
           const positive = change >= 0;
           return (
             <NavLink
@@ -42,7 +42,7 @@ export function SearchDropdown({ query, resultados, totalResultados, onSelect })
                   }`}
                 >
                   {positive ? "+" : ""}
-                  {coin.DISPLAY?.USD.CHANGEPCT24HOUR}%
+                  {coin?.DISPLAY?.USD?.CHANGEPCT24HOUR}%
                 </span>
               </div>
             </NavLink>

@@ -85,7 +85,7 @@ export default function Search() {
                   monedasFiltradas.map((coin) => {
                     const change =
                       parseFloat(
-                        coin.DISPLAY?.USD.CHANGE24HOUR?.replace("$", ""),
+                        coin?.DISPLAY?.USD?.CHANGE24HOUR?.replace(/[$,]/g, ""),
                       ) || 0;
 
                     const positive = change >= 0;
@@ -119,7 +119,7 @@ export default function Search() {
 
                           <div className="col-span-2 text-right">
                             <p className="font-mono text-white">
-                              {coin.DISPLAY?.USD.PRICE}
+                              {coin?.DISPLAY?.USD?.PRICE}
                             </p>
                           </div>
                           <div className="col-span-2 flex justify-center">
@@ -135,12 +135,12 @@ export default function Search() {
                               ) : (
                                 <ArrowDownRight className="h-3.5 w-3.5" />
                               )}
-                              {coin.DISPLAY?.USD.CHANGEPCT24HOUR}%
+                              {coin?.DISPLAY?.USD?.CHANGEPCT24HOUR}%
                             </span>
                           </div>
                           <div className="col-span-2 text-right">
                             <p className="font-mono text-[#7d8086]">
-                              {coin.DISPLAY?.USD.VOLUME24HOURTO}
+                              {coin?.DISPLAY?.USD?.VOLUME24HOURTO}
                             </p>
                           </div>
 

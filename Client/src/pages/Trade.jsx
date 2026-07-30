@@ -28,10 +28,9 @@ export default function Trade() {
   const coin = coins?.find((c) => c.CoinInfo?.Name === symbol);
 
   const price =
-    parseFloat(coin?.DISPLAY?.USD?.PRICE?.replace("$", "").replace(",", "")) ||
-    0;
+    parseFloat(coin?.DISPLAY?.USD?.PRICE?.replace(/[$,]/g, "")) || 0;
   const change =
-    parseFloat(coin?.DISPLAY?.USD?.CHANGE24HOUR?.replace("$", "")) || 0;
+    parseFloat(coin?.DISPLAY?.USD?.CHANGE24HOUR?.replace(/[$,]/g, "")) || 0;
   const isPositive = change >= 0;
 
   return (
