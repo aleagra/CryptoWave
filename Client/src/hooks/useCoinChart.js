@@ -10,7 +10,7 @@ export function useCoinChart(symbol) {
       setLoadingChart(true);
       try {
         const res = await fetch(
-          `https://min-api.cryptocompare.com/data/v2/histohour?fsym=${symbol}&tsym=USD&limit=24`,
+          `https://min-api.cryptocompare.com/data/v2/histohour?fsym=${symbol}&tsym=USD&limit=24&api_key=dcfdfec656ebe0c95f2f72a0aaa4e2d321e2f7e714606f80f98ad1b8a65d79d4`,
         );
         const data = await res.json();
         const prices = data.Data.Data.map((p) => p.close);
