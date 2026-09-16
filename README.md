@@ -1,6 +1,10 @@
 <div align="center">
-  # CryptoWave
-  **Plataforma moderna de seguimiento de criptomonedas en tiempo real, análisis técnico de mercado y simulación de trading.**
+
+  <img src="./logo.svg" alt="CryptoWave Logo" width="85" height="85" />
+
+  <h1>CRYPTOWAVE</h1>
+
+  <p><strong>Plataforma moderna de seguimiento de criptomonedas en tiempo real, análisis técnico de mercado y simulación de trading.</strong></p>
 
   <p align="center">
     <a href="https://cryptowave.web.app/" target="_blank">
