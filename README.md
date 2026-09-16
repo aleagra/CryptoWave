@@ -1,9 +1,5 @@
 <div align="center">
-
-  <img src="https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/trending-up.svg" alt="CryptoWave Logo" width="70" height="70" />
-
-  # 🌊 CryptoWave
-
+  # CryptoWave
   **Plataforma moderna de seguimiento de criptomonedas en tiempo real, análisis técnico de mercado y simulación de trading.**
 
   <p align="center">
